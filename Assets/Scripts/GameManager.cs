@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
     public int moneyPlayer;
     public int moneyPlayerInBank;
 
+    public int Sueño;
+    public int Hambre;
+    public float tempHoras;
+
     public TMP_Text textMoneyPlayer;
     public TMP_Text textMoneyPlayerInBank;
 
@@ -39,11 +43,19 @@ public class GameManager : MonoBehaviour
     public TMP_Text _hours;
     public TMP_Text _days;
 
+    public float time;
+    public float fill1;
+    public float fill2;
+    public Color barraColor;
+
+    public Image barHambre;
+    public Image barSueño;
+
     public string[] days = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
 
     void Start()
     {
-        Time.timeScale = 50;
+        Time.timeScale = 2;
     }
 
     
@@ -53,6 +65,16 @@ public class GameManager : MonoBehaviour
         
         textMoneyPlayer.text = "Dinero: $" + moneyPlayer.ToString();
         textMoneyPlayerInBank.text = "Banco: $" + moneyPlayerInBank.ToString();
+        if (hour > tempHoras)
+        {
+            this.fill1 = Mathf.Clamp01(this.fill1 - 0.1f);
+            this.barSueño.fillAmount = this.fill1;
+            this.fill2 = Mathf.Clamp01(this.fill2 - 0.2f);
+            this.barHambre.fillAmount = this.fill2;
+            tempHoras = hour;
+            CheckColor(barSueño);
+            CheckColor(barHambre);
+        }
     }
 
     void CountTime()
@@ -73,5 +95,21 @@ public class GameManager : MonoBehaviour
         _hours.text = string.Format("{0:00}:00", (hour % 24));
         //_hours.text = (hour % 24).ToString();
         _days.text = days[(int)(day % 7)];
+    }
+    public void CheckColor(Image barra)
+    {
+        if(barra.fillAmount >= 0.7)
+        {
+            this.barraColor = Color.green;
+        }
+        if(barra.fillAmount > 0.4 && barra.fillAmount <= 0.6)
+        {
+            this.barraColor = Color.yellow;
+        }
+        if(barra.fillAmount <= 0.4)
+        {
+            this.barraColor = Color.red;
+        }
+        barra.color = barraColor;
     }
 }
