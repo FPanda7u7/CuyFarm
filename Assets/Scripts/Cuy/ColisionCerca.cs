@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ColisionCerca : MonoBehaviour
 {
-
-    public CuyController cuy;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +14,5 @@ public class ColisionCerca : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Cerca") && !cuy.choco)
-        {
-            cuy.choco = true;
-        }
     }
 }

@@ -19,11 +19,13 @@ public class BancoInteractable : Interactable
     {
         if (isUsing)
         {
+            GameManager.instance.staticPlayer = true;
             canvasBank.SetActive(true);
             canvasPlayer.SetActive(false);
         }
         else
         {
+            GameManager.instance.staticPlayer = false;
             canvasBank.SetActive(false);
             canvasPlayer.SetActive(true);
         }

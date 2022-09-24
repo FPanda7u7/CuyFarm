@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private float distance = 3f;
     [SerializeField] private LayerMask mask;
 
+    public TMP_Text message;
+
     void Start()
     {
         cam = Camera.main;
@@ -18,7 +21,7 @@ public class PlayerInteract : MonoBehaviour
 
     void Update()
     {
-        //UIManager.instance.UpdateText(string.Empty);
+        message.text = string.Empty;
 
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         Debug.DrawRay(ray.origin, ray.direction * distance);
@@ -31,7 +34,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 Interactable i = hit.collider.GetComponent<Interactable>();
                 //UIManager.instance.UpdateText(i.prompMessage);
-                
+                message.text = i.prompMessage;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     i.BaseInteract();

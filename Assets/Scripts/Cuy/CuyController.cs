@@ -1,41 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CuyController : MonoBehaviour
 {
-    public float speed = 5;
+    public bool enCerca;
+    public Vector3 objetivo;
+    
+    private NavMeshAgent agente;
 
-    public GameObject[] cercas = new GameObject[4];
-    public GameObject cerca;
-    public int cercaTarget;
-    public bool choco;
+    private GameObject gameObjectCerca;
+    public Transform cerca;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        agente = GetComponent<NavMeshAgent>();
+
+        gameObjectCerca = GameObject.FindGameObjectWithTag("Cerca");
+        if (gameObjectCerca != null)
+        {
+            cerca = gameObjectCerca.transform;
+        }
+    }
+
     void Start()
     {
+        agente.stoppingDistance = 0;
+
+        RandomPosition();    
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (choco)
+        if (enCerca)
         {
-            cercaTarget = Random.Range(0, 4);
-
-            cerca = cercas[cercaTarget];            
-
-            //transform.LookAt(new Vector3(cercas[cercaTarget].transform.position.x, cercas[cercaTarget].transform.position.z, cercas[cercaTarget].transform.position.z));
-
-            transform.LookAt(cerca.transform.position);
-
-            choco = false;
+            if (transform.position.x == objetivo.x && transform.position.z == objetivo.z)
+            {
+                RandomPosition();
+            }
+            agente.destination = objetivo;
         }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, cerca.transform.position, speed * Time.deltaTime);
-        }
+
 
     }
 
+    public void RandomPosition()
+    {
+        objetivo.x = Random.Range(cerca.localPosition.x - 9, cerca.localPosition.x + 9);
+        //objetivo.y = cerca.position.y;
+        objetivo.z = Random.Range(cerca.localPosition.z - 5, cerca.localPosition.z + 5);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Cerca")
+        {
+            enCerca = true;
+        }else{
+            enCerca = false;
+        }
+    }
 }

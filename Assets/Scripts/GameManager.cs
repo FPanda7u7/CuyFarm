@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    public bool staticPlayer;
+
     public int moneyPlayer;
     public int moneyPlayerInBank;
 
@@ -35,8 +37,8 @@ public class GameManager : MonoBehaviour
     public float week;
     public float month;
 
-    public string _hour;
-    public string _day;
+    public int _hour;
+    public int _day;
     public string _week;
     public string _month;
 
@@ -55,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 2;
+        //Time.timeScale = 2;
     }
 
     
@@ -63,8 +65,14 @@ public class GameManager : MonoBehaviour
     {
         CountTime();
         
+        if (staticPlayer)
+            Cursor.lockState = CursorLockMode.Confined;
+        else
+            Cursor.lockState = CursorLockMode.Locked;
+
         textMoneyPlayer.text = "Dinero: $" + moneyPlayer.ToString();
         textMoneyPlayerInBank.text = "Banco: $" + moneyPlayerInBank.ToString();
+
         if (hour > tempHoras)
         {
             this.fill1 = Mathf.Clamp01(this.fill1 - 0.1f);
@@ -86,8 +94,8 @@ public class GameManager : MonoBehaviour
         week = (int)(day / 7f);
         month = (int)(week / 4f);
 
-        //_hour = (hour % 24).ToString();
-        //_day = ((day % 7) + 1).ToString();
+        _hour = (int)(hour % 24);
+        _day = (int)(day % 7) + 1;
         //_week = ((week % 4) + 1).ToString();
         //_month = ((month) + 1).ToString();
 
