@@ -24,11 +24,17 @@ public class GameManager : MonoBehaviour
     public TMP_Text textMoneyPlayer;
     public TMP_Text textMoneyPlayerInBank;
 
-    public float time;
+    public double timeElapsed;
 
     public float hour;
     public float day;
+    public float week;
     public float month;
+
+    public string _hour;
+    public string _day;
+    public string _week;
+    public string _month;
 
     void Start()
     {
@@ -46,26 +52,17 @@ public class GameManager : MonoBehaviour
 
     void CountTime()
     {
-        time += Time.deltaTime;
+        timeElapsed += Time.deltaTime;
         
-  
-        if (time >= 40)
-        {
-            hour++;
+        hour = (int)(timeElapsed/ 25f);
+        day = (int)(hour / 24f);
+        week = (int)(day / 7f);
+        month = (int)(week / 4f);
 
-            if (hour >= 24)
-            {
-                hour = 0;
-                day++;
+        _hour = (hour % 24).ToString();
+        _day = ((day % 7) + 1).ToString();
+        _week = ((week % 4) + 1).ToString();
+        _month = ((month) + 1).ToString();
 
-                if (day >= 30)
-                {
-                    day = 0;
-                    month++;
-                }
-            }
-
-            time = 0;
-        }
     }
 }
