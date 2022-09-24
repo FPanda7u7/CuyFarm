@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 5;
+        //Time.timeScale = 5;
     }
 
     
@@ -48,9 +48,11 @@ public class GameManager : MonoBehaviour
     {
         time += Time.deltaTime;
         
+  
         if (time >= 40)
         {
             hour++;
+
             if (hour >= 24)
             {
                 hour = 0;
