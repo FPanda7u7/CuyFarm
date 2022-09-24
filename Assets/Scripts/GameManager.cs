@@ -36,9 +36,14 @@ public class GameManager : MonoBehaviour
     public string _week;
     public string _month;
 
+    public TMP_Text _hours;
+    public TMP_Text _days;
+
+    public string[] days = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
+
     void Start()
     {
-        //Time.timeScale = 5;
+        Time.timeScale = 50;
     }
 
     
@@ -59,10 +64,14 @@ public class GameManager : MonoBehaviour
         week = (int)(day / 7f);
         month = (int)(week / 4f);
 
-        _hour = (hour % 24).ToString();
-        _day = ((day % 7) + 1).ToString();
-        _week = ((week % 4) + 1).ToString();
-        _month = ((month) + 1).ToString();
+        //_hour = (hour % 24).ToString();
+        //_day = ((day % 7) + 1).ToString();
+        //_week = ((week % 4) + 1).ToString();
+        //_month = ((month) + 1).ToString();
 
+        //_day = days[(int)(day % 7)];
+        _hours.text = string.Format("{0:00}:00", (hour % 24));
+        //_hours.text = (hour % 24).ToString();
+        _days.text = days[(int)(day % 7)];
     }
 }
