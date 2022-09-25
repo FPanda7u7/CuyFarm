@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 265552835}
   - component: {fileID: 265552834}
   - component: {fileID: 265552833}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Button (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1919,7 +1919,7 @@ GameObject:
   - component: {fileID: 466353859}
   - component: {fileID: 466353861}
   - component: {fileID: 466353860}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2786,7 +2786,7 @@ GameObject:
   - component: {fileID: 580249613}
   - component: {fileID: 580249615}
   - component: {fileID: 580249614}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2921,7 +2921,7 @@ GameObject:
   - component: {fileID: 580336784}
   - component: {fileID: 580336786}
   - component: {fileID: 580336785}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3056,7 +3056,7 @@ GameObject:
   - component: {fileID: 587609145}
   - component: {fileID: 587609147}
   - component: {fileID: 587609146}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: comida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3713,7 +3713,7 @@ GameObject:
   - component: {fileID: 696081438}
   - component: {fileID: 696081440}
   - component: {fileID: 696081439}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: comida (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3795,7 +3795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &704238040
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4307,7 +4307,7 @@ GameObject:
   - component: {fileID: 786329053}
   - component: {fileID: 786329055}
   - component: {fileID: 786329054}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: fondo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4385,7 +4385,7 @@ GameObject:
   - component: {fileID: 787788525}
   - component: {fileID: 787788527}
   - component: {fileID: 787788526}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4821,7 +4821,7 @@ GameObject:
   - component: {fileID: 839263389}
   - component: {fileID: 839263391}
   - component: {fileID: 839263390}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4963,7 +4963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &867811845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7943,7 +7943,7 @@ GameObject:
   - component: {fileID: 1404133979}
   - component: {fileID: 1404133981}
   - component: {fileID: 1404133980}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8079,7 +8079,7 @@ GameObject:
   - component: {fileID: 1423802533}
   - component: {fileID: 1423802532}
   - component: {fileID: 1423802531}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: CanvasTienda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8890,7 +8890,7 @@ GameObject:
   - component: {fileID: 1579118228}
   - component: {fileID: 1579118230}
   - component: {fileID: 1579118229}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9429,7 +9429,7 @@ GameObject:
   - component: {fileID: 1616380315}
   - component: {fileID: 1616380317}
   - component: {fileID: 1616380316}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10464,7 +10464,7 @@ GameObject:
   - component: {fileID: 1756768580}
   - component: {fileID: 1756768579}
   - component: {fileID: 1756768578}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Button (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11487,7 +11487,7 @@ GameObject:
   - component: {fileID: 1988092401}
   - component: {fileID: 1988092403}
   - component: {fileID: 1988092402}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: comida (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11562,7 +11562,7 @@ GameObject:
   - component: {fileID: 1989131734}
   - component: {fileID: 1989131736}
   - component: {fileID: 1989131735}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: comida (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11857,7 +11857,7 @@ GameObject:
   - component: {fileID: 2066753851}
   - component: {fileID: 2066753850}
   - component: {fileID: 2066753849}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Button (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11979,7 +11979,7 @@ GameObject:
   - component: {fileID: 2086099564}
   - component: {fileID: 2086099563}
   - component: {fileID: 2086099562}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Button (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12744,6 +12744,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8748491945291053794, guid: 526a3345f4e890440870f1dd24443357, type: 3}
+      propertyPath: genero
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8748491945291053801, guid: 526a3345f4e890440870f1dd24443357, type: 3}
       propertyPath: m_Name
       value: Cuy
@@ -12940,7 +12944,7 @@ GameObject:
   - component: {fileID: 2146874299}
   - component: {fileID: 2146874301}
   - component: {fileID: 2146874300}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13275,6 +13279,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 575400973}
     m_Modifications:
+    - target: {fileID: 2105058047, guid: 1abd80f7d0fe1834999981e5e0207fb9, type: 3}
+      propertyPath: canvasShop
+      value: 
+      objectReference: {fileID: 1423802529}
+    - target: {fileID: 2105058047, guid: 1abd80f7d0fe1834999981e5e0207fb9, type: 3}
+      propertyPath: canvasPlayer
+      value: 
+      objectReference: {fileID: 867811844}
     - target: {fileID: 7770684949614418349, guid: 1abd80f7d0fe1834999981e5e0207fb9, type: 3}
       propertyPath: m_RootOrder
       value: 0

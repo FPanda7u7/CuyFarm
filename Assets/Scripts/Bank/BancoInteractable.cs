@@ -18,14 +18,12 @@ public class BancoInteractable : Interactable
     void Update()
     {
         if (isUsing)
-        {
-            GameManager.instance.staticPlayer = true;
+        {        
             canvasBank.SetActive(true);
             canvasPlayer.SetActive(false);
         }
         else
-        {
-            GameManager.instance.staticPlayer = false;
+        {          
             canvasBank.SetActive(false);
             canvasPlayer.SetActive(true);
         }
@@ -33,11 +31,16 @@ public class BancoInteractable : Interactable
 
     protected override void Interact()
     {
-        isUsing = true;
+        if (!isUsing)
+        {
+            GameManager.instance.staticPlayer = true;
+            isUsing = true;
+        }
     }
 
     public void VolverGameplay()
     {
+        GameManager.instance.staticPlayer = false;
         isUsing = false;
     }
 }
