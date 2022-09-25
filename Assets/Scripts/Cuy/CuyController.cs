@@ -8,10 +8,13 @@ public class CuyController : MonoBehaviour
     public bool enCerca;
     public Vector3 objetivo;
     
-    private NavMeshAgent agente;
+    public NavMeshAgent agente;
 
     private GameObject gameObjectCerca;
     public Transform cerca;
+
+    public bool buscandoPareja;
+    public Cuy cuy;
 
     private void Awake()
     {
@@ -22,18 +25,24 @@ public class CuyController : MonoBehaviour
         {
             cerca = gameObjectCerca.transform;
         }
+
+        cuy = GetComponent<Cuy>();
     }
 
     void Start()
     {
         agente.stoppingDistance = 0;
-
         RandomPosition();    
     }
 
     void Update()
     {
-        if (enCerca)
+        if (buscandoPareja)
+        {
+            return;
+        }
+        
+        if (enCerca && agente.enabled == true)
         {
             if (transform.position.x == objetivo.x && transform.position.z == objetivo.z)
             {
@@ -41,8 +50,6 @@ public class CuyController : MonoBehaviour
             }
             agente.destination = objetivo;
         }
-
-
     }
 
     public void RandomPosition()
@@ -52,12 +59,30 @@ public class CuyController : MonoBehaviour
         objetivo.z = Random.Range(cerca.localPosition.z - 5, cerca.localPosition.z + 5);
     }
 
+    public void stopIA()
+    {
+        agente.isStopped = true;
+        agente.enabled = false;
+    }
+
+    public void playIA()
+    {
+        agente.enabled = true;
+        agente.isStopped = false;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Cerca")
         {
             enCerca = true;
-        }else{
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Cerca")
+        {
             enCerca = false;
         }
     }

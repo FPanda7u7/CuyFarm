@@ -6,7 +6,6 @@ using TMPro;
 public class PlayerInteract : MonoBehaviour
 {
     private Camera cam;
-    //private PlayerUI playerUI;
 
     [SerializeField] private float distance = 3f;
     [SerializeField] private LayerMask mask;
@@ -16,7 +15,6 @@ public class PlayerInteract : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        //playerUI = GetComponent<PlayerUI>();
     }
 
     void Update()
@@ -33,11 +31,17 @@ public class PlayerInteract : MonoBehaviour
             if (hit.collider.GetComponent<Interactable>() != null)
             {
                 Interactable i = hit.collider.GetComponent<Interactable>();
-                //UIManager.instance.UpdateText(i.prompMessage);
+
                 message.text = i.prompMessage;
+
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     i.BaseInteract();
+                }
+
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    i.BaseInteractSecond();
                 }
             }
         }

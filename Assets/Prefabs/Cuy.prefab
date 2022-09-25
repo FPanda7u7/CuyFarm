@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5972750601885397428}
   m_LocalRotation: {x: -0.011415212, y: -0.7070147, z: 0.011415212, w: 0.7070147}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.046, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -93,14 +93,15 @@ GameObject:
   m_Component:
   - component: {fileID: 8748491945291053802}
   - component: {fileID: 8748491945291053803}
+  - component: {fileID: 3830837249343410792}
   - component: {fileID: 8748491945291053800}
+  - component: {fileID: 8748491945291053804}
   - component: {fileID: 8748491945291053805}
   - component: {fileID: 8748491945291053794}
   - component: {fileID: 8748491945291053795}
-  - component: {fileID: 8748491945291053804}
   m_Layer: 6
   m_Name: Cuy
-  m_TagString: Untagged
+  m_TagString: Cuy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,8 +133,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7098737, y: 0.31183922, z: 0.30138183}
-  m_Center: {x: 0.057317615, y: 0.059260994, z: 0.0009952188}
+  m_Size: {x: 0.31393605, y: 0.3474662, z: 0.7155653}
+  m_Center: {x: -0.00563097, y: 0.014486179, z: 0.05847007}
+--- !u!135 &3830837249343410792
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8748491945291053801}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8748491945291053800
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -150,6 +164,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!195 &8748491945291053804
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8748491945291053801}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 2
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &8748491945291053805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce8beb9998afc04aa91cdb0b0c7b1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prompMessage: 
+  prompMessage: Click izquierdo para coger al cuy
   pivot: {fileID: 0}
 --- !u!114 &8748491945291053794
 MonoBehaviour:
@@ -176,18 +212,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57aa3b90a2e487469c510627f531d22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _genero: 0
-  _edad: 0
-  _estado: 0
+  genero: 0
+  edad: 0
+  estado: 0
   health: 3
   hambre: 0
   tiempoComer: 0
-  enEsperaAparearse: 0
-  estadoEmbarazo: 0
-  creciendo: 0
-  tiempoEdad: 0
+  embarazado: 0
+  tiempoEmbarazo: 0
   enCelo: 0
   tiempoEnCelo: 0
+  gameObjectCuy: {fileID: 4861615258034434654, guid: 91375bd209795e441a475ed82b935ed8, type: 3}
 --- !u!114 &8748491945291053795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,26 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enCerca: 0
   objetivo: {x: 0, y: 0, z: 0}
+  agente: {fileID: 0}
   cerca: {fileID: 0}
---- !u!195 &8748491945291053804
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8748491945291053801}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  buscandoPareja: 0
+  cuy: {fileID: 0}

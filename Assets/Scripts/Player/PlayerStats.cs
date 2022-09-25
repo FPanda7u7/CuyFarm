@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    public List<Cuy> CuyesList;
+    
     public  int _money;
 
     void Start()

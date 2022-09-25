@@ -15,4 +15,14 @@ public abstract class Interactable : MonoBehaviour
     {
 
     }
+
+    public void BaseInteractSecond()
+    {
+        InteractSecond();
+    }
+    
+    protected virtual void InteractSecond()
+    {
+
+    }
 }

@@ -33,9 +33,11 @@ public class BancoInteractable : Interactable
 
     protected override void Interact()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            isUsing = !isUsing;
-        }
+        isUsing = true;
+    }
+
+    public void VolverGameplay()
+    {
+        isUsing = false;
     }
 }
