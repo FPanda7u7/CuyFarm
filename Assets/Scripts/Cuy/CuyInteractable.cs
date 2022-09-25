@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CuyInteractable : Interactable
 {
@@ -15,11 +16,12 @@ public class CuyInteractable : Interactable
     {   
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         pivot = GameObject.FindGameObjectWithTag("PivotMano").GetComponent<Transform>();
+        cuy = GetComponent<Cuy>();
         cuyController = GetComponent<CuyController>();
     }
 
     void Start()
-    {
+    {   
         rb = GetComponent<Rigidbody>();
     }
 
@@ -32,6 +34,7 @@ public class CuyInteractable : Interactable
             rb.isKinematic = false;
             transform.SetParent(null);
             
+            player.stats.gameObject.SetActive(false);
             cuyController.playIA();
         }
     }
@@ -40,6 +43,13 @@ public class CuyInteractable : Interactable
     {
         if (cuy.hambre && player.countFoodCuy > 0)
         {
+            if (cuy.health < 3 && player.countFoodEspecial > 0)
+            {
+                cuy.health++;
+                player.countFoodEspecial--;
+            }else{
+                player.countFoodCuy--;
+            }
             cuy.hambre = false;
         }
     }
@@ -53,5 +63,8 @@ public class CuyInteractable : Interactable
         transform.SetParent(pivot);
 
         cuyController.stopIA();
+
+        player.stats.gameObject.SetActive(true);
+        player.cuy = this.cuy;
     }
 }

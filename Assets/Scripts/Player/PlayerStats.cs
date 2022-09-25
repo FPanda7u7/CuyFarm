@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
     public List<Cuy> CuyesList;
     
     public int countFoodCuy;
+    public int countFoodEspecial;
     public int countFoodPlayer;
     
     public int dinero; //Dinero
@@ -23,6 +25,12 @@ public class PlayerStats : MonoBehaviour
     public Image barHambre;
     public Image barSleep;
 
+    public TextMeshProUGUI[] inventario;
+
+    public GameObject stats;
+    public List<TextMeshProUGUI> statsText;
+    public Cuy cuy;
+
     void Start()
     {
         
@@ -35,6 +43,15 @@ public class PlayerStats : MonoBehaviour
         dinero = GameManager.instance.dineroEfectivo;
 
         _hour = GameManager.instance._hour;
+
+        inventario[0].text = countFoodCuy.ToString();
+        inventario[1].text = countFoodEspecial.ToString();
+        inventario[2].text = countFoodPlayer.ToString();
+
+        if (cuy != null)
+        {
+            MostrarStatsCuy();
+        }
         
         if (_hour > tempHoras)
         {
@@ -62,5 +79,39 @@ public class PlayerStats : MonoBehaviour
             this.barraColor = Color.red;
         }
         barra.color = barraColor;
+    }
+
+    public void MostrarStatsCuy()
+    {
+        statsText[0].text = "Vida: " + cuy.health.ToString();
+        statsText[1].text = cuy.genero.ToString();
+        statsText[2].text = cuy.edad.ToString();
+        statsText[3].text = cuy.estado.ToString();
+
+        if (cuy.hambre)
+        {
+            statsText[4].text = "Tiene Hambre";
+        }else{
+            statsText[4].text = "No tiene Hambre";
+        }
+
+        if (cuy.enCelo)
+        {
+            statsText[5].text = "En celo";
+        }else{
+            statsText[5].text = "No está en celo";
+        }
+
+        if (cuy.embarazado)
+        {
+            statsText[6].text = "Está embarazada";
+        }else{
+            if (cuy.genero == Cuy.Genero.macho)
+            {
+                statsText[6].text = "---------";
+            }else{
+                statsText[6].text = "No está embarazada";
+            }       
+        } 
     }
 }

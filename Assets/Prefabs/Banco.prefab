@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &297220173716033867
+--- !u!1 &3535098543941857670
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,119 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 297220173716033972}
-  - component: {fileID: 297220173716033975}
-  - component: {fileID: 297220173716033974}
-  - component: {fileID: 297220173716033973}
+  - component: {fileID: 3535098544118675349}
+  - component: {fileID: 3535098543785413651}
+  - component: {fileID: 3535098543785413648}
+  - component: {fileID: 3535098543785413653}
+  - component: {fileID: 3535098543785413650}
+  m_Layer: 6
+  m_Name: Banco
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &3535098544118675349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3535098543941857670}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3535098544311750305}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3535098543785413651
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3535098543941857670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.029314, y: 1.4935061, z: 0.73209715}
+  m_Center: {x: -1.3606672, y: -0.4300552, z: -2.587382}
+--- !u!114 &3535098543785413648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3535098543941857670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35e7da690b582944b1d1b21518264cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prompMessage: Presiona E para usar el banco
+  canvasPlayer: {fileID: 0}
+  canvasEdificio: {fileID: 0}
+--- !u!114 &3535098543785413653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3535098543941857670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb622f35e0f7ff4cbbe3c0d48c1ae69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saldoPlayer: {fileID: 0}
+  saldoPlayerInBank: {fileID: 0}
+  message: {fileID: 0}
+  _tmpRetiro: {fileID: 0}
+  _tmpDeposito: {fileID: 0}
+  tmpDeposito: 0
+  tmpRetiro: 0
+  dineroPlayer: 0
+--- !u!114 &3535098543785413650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3535098543941857670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b000aea91c4ff249a08242df1c8e8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deudaTxt: {fileID: 0}
+  saldoPlayer: {fileID: 0}
+  saldoDebito: {fileID: 0}
+  prestamoTotalTxt: {fileID: 0}
+  message: {fileID: 0}
+  _pagoSolicitado: {fileID: 0}
+  _prestamoSolicitado: {fileID: 0}
+  interes: 0
+  prestamoTotal: 0
+  prestamoSolicitado: 0
+  hayPrestamo: 0
+  hayPago: 0
+  pagoSolicitado: 0
+--- !u!1 &3535098544311750238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3535098544311750305}
+  - component: {fileID: 3535098544311750306}
+  - component: {fileID: 3535098544311750307}
+  - component: {fileID: 3535098544311750304}
   m_Layer: 0
   m_Name: banco
   m_TagString: Untagged
@@ -19,36 +128,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &297220173716033972
+--- !u!4 &3535098544311750305
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297220173716033867}
+  m_GameObject: {fileID: 3535098544311750238}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 297220173305145472}
+  m_Father: {fileID: 3535098544118675349}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!33 &297220173716033975
+--- !u!33 &3535098544311750306
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297220173716033867}
+  m_GameObject: {fileID: 3535098544311750238}
   m_Mesh: {fileID: 3861478300804232965, guid: 65e8c49d791051049a1d6013bb60427e, type: 3}
---- !u!23 &297220173716033974
+--- !u!23 &3535098544311750307
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297220173716033867}
+  m_GameObject: {fileID: 3535098544311750238}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,13 +193,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &297220173716033973
+--- !u!64 &3535098544311750304
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297220173716033867}
+  m_GameObject: {fileID: 3535098544311750238}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -98,84 +207,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3861478300804232965, guid: 65e8c49d791051049a1d6013bb60427e, type: 3}
---- !u!1 &297220174153051795
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 297220173305145472}
-  - component: {fileID: 297220174305284870}
-  - component: {fileID: 297220174305284869}
-  - component: {fileID: 297220173305145479}
-  m_Layer: 6
-  m_Name: Banco
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &297220173305145472
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297220174153051795}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 297220173716033972}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &297220174305284870
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297220174153051795}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.029314, y: 1.4935061, z: 0.73209715}
-  m_Center: {x: -1.3606672, y: -0.4300552, z: -2.587382}
---- !u!114 &297220174305284869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297220174153051795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d35e7da690b582944b1d1b21518264cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prompMessage: Presiona E para usar el banco
-  canvasPlayer: {fileID: 0}
-  canvasEdificio: {fileID: 0}
---- !u!114 &297220173305145479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297220174153051795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49b9d3df2e884af468a75790c9998f84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saldoPlayer: {fileID: 0}
-  saldoPlayerInBank: {fileID: 0}
-  message: {fileID: 0}
-  tmpDeposito: 0
-  tmpRetiro: 0
-  dineroPlayer: 1000
