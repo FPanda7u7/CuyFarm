@@ -38,19 +38,11 @@ public class Cuy : MonoBehaviour
 
     public GameObject gameObjectCuy;
     private PlayerStats player;
-    private CuyController cuyController;   
+    private CuyController cuyController;
 
-    //public float embarazo;
-    //public float tiempoHambre;
-    //public float tiempoParaComer;
-    //public float hacerPopo;
-
-    //float deltaTime_edadTiempo;
-    //float deltaTime_enCelo;
-    //float deltaTime_embarazo;
-    //float deltaTime_tiempoHambre;
-    
-    //float deltaTime_hacerPopo;
+    public MeshRenderer materialCuy;
+    public Material materialMacho;
+    public Material materialHembra;   
 
     private void Awake()
     {
@@ -60,6 +52,7 @@ public class Cuy : MonoBehaviour
 
     void Start()
     {
+        AgregarMaterial();
         player.CuyesList.Add(this);
     }
 
@@ -70,7 +63,8 @@ public class Cuy : MonoBehaviour
         day = GameManager.instance.day; // días contados
         _hour = GameManager.instance._hour; // 0 - 24 horas
 
-        //Salud();
+        
+        Salud();
         Crecimiento();
         Hambre();
         Aparearse();
@@ -197,6 +191,16 @@ public class Cuy : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }  
+    }
+
+    public void AgregarMaterial()
+    {
+        if (genero == Genero.macho)
+        {
+            materialCuy.material = materialMacho;
+        }else{
+            materialCuy.material = materialHembra;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

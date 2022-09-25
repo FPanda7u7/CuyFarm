@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class BancoBCP : MonoBehaviour
+public class BancoDebito : MonoBehaviour
 {
     public TMP_Text saldoPlayer;
     public TMP_Text saldoPlayerInBank;
@@ -12,7 +12,6 @@ public class BancoBCP : MonoBehaviour
 
     public TMP_InputField _tmpRetiro;
     public TMP_InputField _tmpDeposito;
-
 
     public int tmpDeposito;
     public int tmpRetiro;

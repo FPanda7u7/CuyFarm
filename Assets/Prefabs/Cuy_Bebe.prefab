@@ -140,6 +140,9 @@ MonoBehaviour:
   enCelo: 0
   tiempoEnCelo: 0
   gameObjectCuy: {fileID: 4861615258034434654}
+  materialCuy: {fileID: 8357708064307812566}
+  materialMacho: {fileID: 2100000, guid: ddfdc90e9df3cc94cbe7b5b1c162352a, type: 2}
+  materialHembra: {fileID: 2100000, guid: 657fd92341f500047a0d2160d26b4178, type: 2}
 --- !u!114 &4861615258034434644
 MonoBehaviour:
   m_ObjectHideFlags: 0

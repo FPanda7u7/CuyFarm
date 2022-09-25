@@ -43,12 +43,5 @@ public class EdificioInteractable : Interactable
             shop.countFoodCuy = 0;
             shop.countFoodPlayer = 0;
         }
-
-        BancoBCP bancoBCP = GetComponent<BancoBCP>();
-        if (bancoBCP != null){
-            bancoBCP.LimpiarInputDeposito();
-            bancoBCP.LimpiarInputRetiro();
-            bancoBCP.message.text = "";
-        }
     }
 }

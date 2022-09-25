@@ -6,10 +6,14 @@ public class CuyInteractable : Interactable
 {
     public Transform pivot;
     private Rigidbody rb;
-    private CuyController cuyController;
 
+    private PlayerStats player;
+    private Cuy cuy;
+    private CuyController cuyController;
+    
     private void Awake()
-    {
+    {   
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         pivot = GameObject.FindGameObjectWithTag("PivotMano").GetComponent<Transform>();
         cuyController = GetComponent<CuyController>();
     }
@@ -29,6 +33,14 @@ public class CuyInteractable : Interactable
             transform.SetParent(null);
             
             cuyController.playIA();
+        }
+    }
+
+    protected override void Interact()
+    {
+        if (cuy.hambre && player.countFoodCuy > 0)
+        {
+            cuy.hambre = false;
         }
     }
 
