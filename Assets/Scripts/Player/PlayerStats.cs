@@ -7,6 +7,9 @@ public class PlayerStats : MonoBehaviour
 {
     public List<Cuy> CuyesList;
     
+    public int countFoodCuy;
+    public int countFoodPlayer;
+    
     public int dinero; //Dinero
 
     public int sleep;
@@ -29,7 +32,7 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        dinero = GameManager.instance.dineroEnPlayer;
+        dinero = GameManager.instance.dineroEfectivo;
 
         _hour = GameManager.instance._hour;
         

@@ -37,5 +37,18 @@ public class EdificioInteractable : Interactable
         canvasPlayer.SetActive(true);
         GameManager.instance.staticPlayer = false;
         isUsing = false;
+
+        Shop shop = GetComponent<Shop>();
+        if (shop != null){
+            shop.countFoodCuy = 0;
+            shop.countFoodPlayer = 0;
+        }
+
+        BancoBCP bancoBCP = GetComponent<BancoBCP>();
+        if (bancoBCP != null){
+            bancoBCP.LimpiarInputDeposito();
+            bancoBCP.LimpiarInputRetiro();
+            bancoBCP.message.text = "";
+        }
     }
 }
