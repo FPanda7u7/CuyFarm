@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BancoInteractable : Interactable
+public class EdificioInteractable : Interactable
 {
-    public GameObject canvasBank;
     public GameObject canvasPlayer;
+    public GameObject canvasEdificio;
 
-    public bool isUsing = false;
+    private bool isUsing = false;
 
     void Start()
     {
@@ -17,22 +17,15 @@ public class BancoInteractable : Interactable
     
     void Update()
     {
-        if (isUsing)
-        {        
-            canvasBank.SetActive(true);
-            canvasPlayer.SetActive(false);
-        }
-        else
-        {          
-            canvasBank.SetActive(false);
-            canvasPlayer.SetActive(true);
-        }
+
     }
 
     protected override void Interact()
     {
         if (!isUsing)
         {
+            canvasEdificio.SetActive(true);
+            canvasPlayer.SetActive(false);
             GameManager.instance.staticPlayer = true;
             isUsing = true;
         }
@@ -40,6 +33,8 @@ public class BancoInteractable : Interactable
 
     public void VolverGameplay()
     {
+        canvasEdificio.SetActive(false);
+        canvasPlayer.SetActive(true);
         GameManager.instance.staticPlayer = false;
         isUsing = false;
     }

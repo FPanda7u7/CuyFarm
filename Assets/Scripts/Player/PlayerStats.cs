@@ -7,8 +7,9 @@ public class PlayerStats : MonoBehaviour
 {
     public List<Cuy> CuyesList;
     
-    public  int _money;
-    public int Sueño;
+    public int dinero; //Dinero
+
+    public int sleep;
     public int Hambre;
     public int tempHoras;
     public int _hour;
@@ -17,7 +18,7 @@ public class PlayerStats : MonoBehaviour
     public float fill2;
     public Color barraColor;
     public Image barHambre;
-    public Image barSueño;
+    public Image barSleep;
 
     void Start()
     {
@@ -28,15 +29,17 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        _money = GameManager.instance.moneyPlayer;
+        dinero = GameManager.instance.dineroEnPlayer;
+
         _hour = GameManager.instance._hour;
+        
         if (_hour > tempHoras)
         {
             this.fill1 = Mathf.Clamp01(this.fill1 - 0.1f);
-            this.barSueño.fillAmount = this.fill1;
+            this.barSleep.fillAmount = this.fill1;
             this.fill2 = Mathf.Clamp01(this.fill2 - 0.2f);
             this.barHambre.fillAmount = this.fill2;
-            CheckColor(barSueño);
+            CheckColor(barSleep);
             CheckColor(barHambre);
         }
         tempHoras = _hour;

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grass : Food
+public class Object : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int cost;
+    
     void Start()
     {
         

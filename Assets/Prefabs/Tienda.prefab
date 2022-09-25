@@ -108,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7770684949614418349}
   - component: {fileID: 7770684949614418348}
+  - component: {fileID: 3295469718023424885}
   - component: {fileID: 2105058047}
   m_Layer: 6
   m_Name: Tienda
@@ -145,7 +146,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.2466037, y: 2.040181, z: 1.017334}
   m_Center: {x: -0.11860621, y: -0.7428489, z: -2.7529106}
---- !u!114 &2105058047
+--- !u!114 &3295469718023424885
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,6 +155,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7770684949614418350}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35e7da690b582944b1d1b21518264cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prompMessage: Presiona E para usar la tienda
+  canvasPlayer: {fileID: 0}
+  canvasEdificio: {fileID: 0}
+--- !u!114 &2105058047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7770684949614418350}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc9eb0dbd1eb6224d9cb761e50fafc94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -161,3 +177,4 @@ MonoBehaviour:
   canvasShop: {fileID: 0}
   canvasPlayer: {fileID: 0}
   isUsing: 0
+  objetos: []

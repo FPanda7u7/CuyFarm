@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -202,8 +202,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: ad7f7154b9b96b749a57dd9d5c2d7b74, type: 3}
 --- !u!114 &43569587 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7247188568353867063, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-  m_PrefabInstance: {fileID: 7247188568397436036}
+  m_CorrespondingSourceObject: {fileID: 297220173305145479, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+  m_PrefabInstance: {fileID: 297220173330790708}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -213,8 +213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!4 &43569588 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7247188568353867056, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-  m_PrefabInstance: {fileID: 7247188568397436036}
+  m_CorrespondingSourceObject: {fileID: 297220173305145472, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+  m_PrefabInstance: {fileID: 297220173330790708}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &94571596
 GameObject:
@@ -695,8 +695,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staticPlayer: 0
-  moneyPlayer: 0
-  moneyPlayerInBank: 0
+  dineroEnPlayer: 0
+  dineroEnBanco: 0
   textMoneyPlayer: {fileID: 2146356129}
   textMoneyPlayerInBank: {fileID: 613107469}
   timeElapsed: 0
@@ -731,7 +731,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &196626365
 GameObject:
@@ -1835,7 +1835,7 @@ Transform:
   - {fileID: 311358850}
   - {fileID: 1716529330}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &387522294
 PrefabInstance:
@@ -2760,11 +2760,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2105058046}
   - {fileID: 307841435}
   - {fileID: 43569588}
+  - {fileID: 2105058046}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &580249612
 GameObject:
@@ -5231,7 +5231,7 @@ Transform:
   - {fileID: 279881631}
   - {fileID: 963194228}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &890675558
 MonoBehaviour:
@@ -5284,8 +5284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CuyesList: []
-  _money: 150
-  "Sue\xF1o": 0
+  dinero: 0
+  sleep: 0
   Hambre: 0
   tempHoras: 0
   _hour: 0
@@ -5294,7 +5294,7 @@ MonoBehaviour:
   fill2: 1
   barraColor: {r: 0, g: 0, b: 0, a: 0}
   barHambre: {fileID: 1274878467}
-  "barSue\xF1o": {fileID: 1880382519}
+  barSleep: {fileID: 1880382519}
 --- !u!1 &901656696
 GameObject:
   m_ObjectHideFlags: 0
@@ -6362,17 +6362,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035138461}
   m_CullTransparentMesh: 1
---- !u!114 &1056827952 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1863144558359354283, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-  m_PrefabInstance: {fileID: 7247188568397436036}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f86063446a3e0145aaac6d07842f181, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1061896683
 GameObject:
   m_ObjectHideFlags: 0
@@ -9641,7 +9630,7 @@ Transform:
   - {fileID: 736009491}
   - {fileID: 1155870631}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1682350099
 GameObject:
@@ -10268,7 +10257,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1056827952}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BancoInteractable, Assembly-CSharp
         m_MethodName: VolverGameplay
         m_Mode: 1
@@ -13069,6 +13058,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146874298}
   m_CullTransparentMesh: 1
+--- !u!1001 &297220173330790708
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 575400973}
+    m_Modifications:
+    - target: {fileID: 297220173305145472, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 297220173305145472, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 297220173305145472, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 297220173305145472, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 297220173305145472, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 297220173305145472, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 297220173305145472, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 297220173305145472, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 297220173305145472, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 297220173305145472, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 297220173305145472, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 297220173305145479, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: message
+      value: 
+      objectReference: {fileID: 880355668}
+    - target: {fileID: 297220173305145479, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: saldoPlayer
+      value: 
+      objectReference: {fileID: 480935755}
+    - target: {fileID: 297220173305145479, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: saldoPlayerInBank
+      value: 
+      objectReference: {fileID: 1510380606}
+    - target: {fileID: 297220174153051795, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: m_Name
+      value: Banco
+      objectReference: {fileID: 0}
+    - target: {fileID: 297220174305284869, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: canvasPlayer
+      value: 
+      objectReference: {fileID: 867811844}
+    - target: {fileID: 297220174305284869, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
+      propertyPath: canvasEdificio
+      value: 
+      objectReference: {fileID: 704238039}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
 --- !u!1001 &536210735367134851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13138,9 +13204,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 575400973}
     m_Modifications:
+    - target: {fileID: 2146318246, guid: 26e8c3b3f2d9f3140a7bf2cdcada4e05, type: 3}
+      propertyPath: canvasPlayer
+      value: 
+      objectReference: {fileID: 867811844}
     - target: {fileID: 2877792097744742065, guid: 26e8c3b3f2d9f3140a7bf2cdcada4e05, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2877792097744742065, guid: 26e8c3b3f2d9f3140a7bf2cdcada4e05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13188,91 +13258,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26e8c3b3f2d9f3140a7bf2cdcada4e05, type: 3}
---- !u!1001 &7247188568397436036
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 575400973}
-    m_Modifications:
-    - target: {fileID: 1863144558359354283, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: canvasBank
-      value: 
-      objectReference: {fileID: 704238039}
-    - target: {fileID: 1863144558359354283, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: canvasPlayer
-      value: 
-      objectReference: {fileID: 867811844}
-    - target: {fileID: 1863144558359354283, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: prompMessage
-      value: Presiona E para usar el banco
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247188568353867056, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247188568353867056, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247188568353867056, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247188568353867056, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247188568353867056, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247188568353867056, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247188568353867056, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247188568353867056, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247188568353867056, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247188568353867056, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247188568353867056, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247188568353867062, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: m_Name
-      value: Banco
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247188568353867063, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: message
-      value: 
-      objectReference: {fileID: 880355668}
-    - target: {fileID: 7247188568353867063, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: saldoPlayer
-      value: 
-      objectReference: {fileID: 480935755}
-    - target: {fileID: 7247188568353867063, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: saldoPlayerInBank
-      value: 
-      objectReference: {fileID: 1510380606}
-    - target: {fileID: 7247188568353867063, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
-      propertyPath: saldoPlayerinBank
-      value: 
-      objectReference: {fileID: 1510380606}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f4bc5ab160fff234abcd4ac94b38f7fd, type: 3}
 --- !u!1001 &7770684947920419667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13288,9 +13273,17 @@ PrefabInstance:
       propertyPath: canvasPlayer
       value: 
       objectReference: {fileID: 867811844}
+    - target: {fileID: 3295469718023424885, guid: 1abd80f7d0fe1834999981e5e0207fb9, type: 3}
+      propertyPath: canvasPlayer
+      value: 
+      objectReference: {fileID: 867811844}
+    - target: {fileID: 3295469718023424885, guid: 1abd80f7d0fe1834999981e5e0207fb9, type: 3}
+      propertyPath: canvasEdificio
+      value: 
+      objectReference: {fileID: 1423802529}
     - target: {fileID: 7770684949614418349, guid: 1abd80f7d0fe1834999981e5e0207fb9, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7770684949614418349, guid: 1abd80f7d0fe1834999981e5e0207fb9, type: 3}
       propertyPath: m_LocalPosition.x

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2877792097744742065}
   - component: {fileID: 2877792097744742064}
-  m_Layer: 0
+  - component: {fileID: 2146318246}
+  m_Layer: 6
   m_Name: Casa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +47,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.1191943, y: 1.7229773, z: 0.9507308}
   m_Center: {x: 0, y: 0, z: -2.549698}
+--- !u!114 &2146318246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2877792097744742066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35e7da690b582944b1d1b21518264cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prompMessage: Presiona E para entrar a tu casa
+  canvasPlayer: {fileID: 0}
+  canvasEdificio: {fileID: 0}
 --- !u!1001 &2877792097006306670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116,6 +132,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5bfb9ef3390288d4285581bfafb4cc05, type: 3}
       propertyPath: m_Name
       value: Casita
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5bfb9ef3390288d4285581bfafb4cc05, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfb9ef3390288d4285581bfafb4cc05, type: 3}

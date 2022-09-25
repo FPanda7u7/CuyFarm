@@ -26,21 +26,21 @@ public class BancoBCP : MonoBehaviour
     
     void Update()
     {
-        GameManager.instance.moneyPlayerInBank = dineroPlayer;
+        GameManager.instance.dineroEnBanco = dineroPlayer;
 
         saldoPlayerInBank.text = "$ " + dineroPlayer.ToString();
-        saldoPlayer.text = "$ " + GameManager.instance.moneyPlayer.ToString();
+        saldoPlayer.text = "$ " + GameManager.instance.dineroEnPlayer.ToString();
     }
 
     public void Depositar()
     {
         if (depositoCorrecto)
         {
-            if (GameManager.instance.moneyPlayer >= tmpDeposito)
+            if (GameManager.instance.dineroEnPlayer >= tmpDeposito)
             {
                 if (tmpDeposito != 0)
                 {
-                    GameManager.instance.moneyPlayer -= tmpDeposito;
+                    GameManager.instance.dineroEnPlayer -= tmpDeposito;
                     dineroPlayer += tmpDeposito;
                     message.text = "Deposito realizado con éxito";
                 }else{
@@ -63,7 +63,7 @@ public class BancoBCP : MonoBehaviour
                 if (tmpRetiro != 0)
                 {
                     dineroPlayer -= tmpRetiro;
-                    GameManager.instance.moneyPlayer += tmpRetiro;
+                    GameManager.instance.dineroEnPlayer += tmpRetiro;
                     message.text = "Retiro realizado con éxito";
                 }else{
                     message.text = "Ingrese un monto diferente de 0";

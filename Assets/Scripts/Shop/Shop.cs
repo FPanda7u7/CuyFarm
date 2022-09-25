@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shop : Interactable
+public class Shop : MonoBehaviour
 {
-    public GameObject canvasShop;
-    public GameObject canvasPlayer;
+    public Object foodCuy;
+    public Object foodPlayer;
 
-    public bool usando = false;
+    public int countFoodCuy;
+    public int countFoodPlayer;
+    public int countTotal;
 
     void Start()
     {
@@ -17,30 +19,37 @@ public class Shop : Interactable
     
     void Update()
     {
-        if (usando)
+        
+    }
+
+    public void AgregarAlCarrito(string comida)
+    {  
+        if (comida == "Comida Cuy")
         {
-            canvasShop.SetActive(true);
-            canvasPlayer.SetActive(false);
+            countFoodCuy += Mathf.Clamp(0, 100, countFoodCuy);
         }
-        else
-        {          
-            canvasShop.SetActive(false);
-            canvasPlayer.SetActive(true);
+
+        if (comida == "Comida Player")
+        {
+            countTotal += foodPlayer.cost;
         }
     }
 
-    protected override void Interact()
+    public void QuitarAlCarrito(string comida)
     {
-        if (!usando)
+        if (comida == "Comida Cuy")
         {
-            GameManager.instance.staticPlayer = true;
-            usando = true;
+            countTotal -= foodCuy.cost;
+        }
+        
+        if (comida == "Comida Player")
+        {
+            countTotal -= foodPlayer.cost;
         }
     }
 
-    public void VolverGameplay()
+    public void BuyFoodPlayer()
     {
-        GameManager.instance.staticPlayer = false;
-        usando = false;
+
     }
 }

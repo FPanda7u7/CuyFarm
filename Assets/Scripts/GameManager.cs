@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
 
     public bool staticPlayer;
 
-    public int moneyPlayer;
-    public int moneyPlayerInBank;
+    public int dineroEnPlayer;
+    public int dineroEnBanco;
 
     public TMP_Text textMoneyPlayer;
     public TMP_Text textMoneyPlayerInBank;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 20;
+        //Time.timeScale = 20;
     }
 
     
@@ -58,8 +58,8 @@ public class GameManager : MonoBehaviour
         else
             Cursor.lockState = CursorLockMode.Locked;
 
-        textMoneyPlayer.text = "Dinero: $" + moneyPlayer.ToString();
-        textMoneyPlayerInBank.text = "Banco: $" + moneyPlayerInBank.ToString();
+        textMoneyPlayer.text = "Dinero: $" + dineroEnPlayer.ToString();
+        textMoneyPlayerInBank.text = "Banco: $" + dineroEnBanco.ToString();
     }
 
     void CountTime()
