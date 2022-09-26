@@ -31,13 +31,6 @@ public class PlayerStats : MonoBehaviour
     public List<TextMeshProUGUI> statsText;
     public Cuy cuy;
 
-    void Start()
-    {
-        
-    }
-
-    
-
     void Update()
     {
         dinero = GameManager.instance.dineroEfectivo;

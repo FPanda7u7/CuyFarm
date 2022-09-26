@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //Time.timeScale = 20;
+        Time.timeScale = 20;
     }
 
     
