@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text textDineroEfectivo;
     public TMP_Text textDineroDebito;
+    public TMP_Text textDineroCredito;
 
     public double timeElapsed;
 
@@ -46,7 +47,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 20;
+        //Time.timeScale = 10;
+
+        timeElapsed += 150;
     }
 
     
@@ -60,7 +63,9 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
 
         textDineroEfectivo.text = "Dinero: $" + dineroEfectivo.ToString();
-        textDineroDebito.text = "Banco: $" + dineroDebito.ToString();
+        textDineroDebito.text = "Debito: $" + dineroDebito.ToString();
+        textDineroCredito.text = "Deuda: $" + dineroCredito.ToString();
+
     }
 
     void CountTime()

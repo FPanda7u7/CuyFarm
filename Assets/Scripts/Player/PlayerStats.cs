@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -14,22 +15,33 @@ public class PlayerStats : MonoBehaviour
     
     public int dinero; //Dinero
 
-    public int sleep;
-    public int Hambre;
+    public float tmpHambre;
+    public float hambre;
+    public float hambreMax = 250;
+
+
     public int tempHoras;
     public int _hour;
     public float time;
-    public float fill1;
     public float fill2;
+
     public Color barraColor;
     public Image barHambre;
-    public Image barSleep;
+
+    public Transform hospital;
 
     public TextMeshProUGUI[] inventario;
 
     public GameObject stats;
     public List<TextMeshProUGUI> statsText;
     public Cuy cuy;
+
+    public GameObject canvasPerder;
+
+    private void Start()
+    {
+        hambre = hambreMax;
+    }
 
     void Update()
     {
@@ -41,21 +53,27 @@ public class PlayerStats : MonoBehaviour
         inventario[1].text = countFoodEspecial.ToString();
         inventario[2].text = countFoodPlayer.ToString();
 
+        Dormir();
+
         if (cuy != null)
         {
             MostrarStatsCuy();
         }
+
+        hambre -= Time.deltaTime;
+        hambre = Mathf.Clamp(hambre, 0, hambreMax);  
+        barHambre.fillAmount = hambre / hambreMax;
         
-        if (_hour > tempHoras)
+        CheckColor(barHambre);
+
+        if (hambre <= 0)
         {
-            this.fill1 = Mathf.Clamp01(this.fill1 - 0.1f);
-            this.barSleep.fillAmount = this.fill1;
-            this.fill2 = Mathf.Clamp01(this.fill2 - 0.2f);
-            this.barHambre.fillAmount = this.fill2;
-            CheckColor(barSleep);
-            CheckColor(barHambre);
+            this.transform.position = hospital.position;
+            GameManager.instance.dineroCredito += 75;
+            hambre = hambreMax;
         }
-        tempHoras = _hour;
+
+        Perder();
     }
     public void CheckColor(Image barra)
     {
@@ -63,15 +81,44 @@ public class PlayerStats : MonoBehaviour
         {
             this.barraColor = Color.green;
         }
-        if (barra.fillAmount > 0.4 && barra.fillAmount <= 0.6)
+        if (barra.fillAmount > 0.2 && barra.fillAmount <= 0.6)
         {
             this.barraColor = Color.yellow;
         }
-        if (barra.fillAmount <= 0.4)
+        if (barra.fillAmount <= 0.2)
         {
             this.barraColor = Color.red;
         }
         barra.color = barraColor;
+    }
+
+    public void Dormir()
+    {
+        if (GameManager.instance._hour >= 23)
+        {
+            GameManager.instance.timeElapsed += 150f;
+            this.transform.position = hospital.position;
+            GameManager.instance.dineroCredito += 50;
+        }
+    }
+
+    public void Perder()
+    {
+        if (GameManager.instance._day == 15 || GameManager.instance._day == 28)
+        {
+            if (CuyesList.Count == 0 && GameManager.instance.dineroCredito > 0)
+            {
+                canvasPerder.gameObject.SetActive(true);
+                GameManager.instance.staticPlayer = true;
+            }else{
+                for (int i = 0; i < CuyesList.Count; i++)
+                {
+                    GameObject _tmpCuy = CuyesList[i].gameObject;
+                    CuyesList.Remove(CuyesList[i]);
+                    Destroy(_tmpCuy);
+                }
+            }
+        }
     }
 
     public void MostrarStatsCuy()
@@ -106,5 +153,10 @@ public class PlayerStats : MonoBehaviour
                 statsText[6].text = "No está embarazada";
             }       
         } 
+    }
+
+    public void VolverMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

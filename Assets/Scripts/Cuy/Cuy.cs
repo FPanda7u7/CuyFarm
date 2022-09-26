@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Cuy : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class Cuy : MonoBehaviour
     public MeshRenderer materialCuy;
     public Material materialMacho;
     public Material materialHembra;   
+    public GameObject alert;
 
     private void Awake()
     {
@@ -84,6 +86,7 @@ public class Cuy : MonoBehaviour
     {     
         if (hambre)
         {
+            alert.SetActive(true);
             tiempoComer += Time.deltaTime;
 
             if (tiempoComer >= 50)
@@ -93,6 +96,7 @@ public class Cuy : MonoBehaviour
                 tiempoComer = 0;
             }
         }else{
+            alert.SetActive(false);
             if (_hour == 8 || _hour == 13 || _hour == 18)
             {
                 if (tmp_tiempoComer != _hour)
@@ -133,7 +137,7 @@ public class Cuy : MonoBehaviour
     {
         if (embarazado)
         {
-            if (day >= tiempoEmbarazo + 1)
+            if (day >= tiempoEmbarazo + 6)
             {
                 int cantidaHijos = Random.Range(3, 6);
                 for (int i = 0; i < cantidaHijos; i++)

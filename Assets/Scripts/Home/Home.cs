@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Home : MonoBehaviour
 {
-
     public PlayerStats player;
 
     [SerializeField] private EdificioInteractable interactuable;
@@ -23,29 +22,26 @@ public class Home : MonoBehaviour
 
     public void Comer()
     {
-        player.fill2 = 1;
-
-        player.barHambre.fillAmount = player.fill2;
-        player.CheckColor(player.barHambre);
-
-        interactuable.VolverGameplay();
+        if (player.countFoodPlayer > 0)
+        {
+            player.hambre += 100;
+        }
     }
 
     public void Dormir()
     {
-
-        GameManager.instance.timeElapsed += 150;
-
-        player.fill1 = 1.5f;
-        player.barSleep.fillAmount = player.fill1;
-        player.CheckColor(player.barSleep);
+        if (GameManager.instance._hour >= 22)
+        {         
+            GameManager.instance.timeElapsed += 175f;
+            interactuable.VolverGameplay();
+        }else{
+            Debug.Log("No puedes dormir");
+        }
 
         player.fill2 = 2;
         player.barHambre.fillAmount = player.fill2;
         player.CheckColor(player.barHambre);
 
         //Comer();
-
-        interactuable.VolverGameplay();
     }
 }
