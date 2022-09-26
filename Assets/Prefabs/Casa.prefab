@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2877792097744742065}
   - component: {fileID: 2877792097744742064}
   - component: {fileID: 2146318246}
+  - component: {fileID: 504951016}
   m_Layer: 6
   m_Name: Casa
   m_TagString: Untagged
@@ -62,6 +63,20 @@ MonoBehaviour:
   prompMessage: Presiona E para entrar a tu casa
   canvasPlayer: {fileID: 0}
   canvasEdificio: {fileID: 0}
+--- !u!114 &504951016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2877792097744742066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748d5288a994ce748b43e62652f56b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  interactuable: {fileID: 2146318246}
 --- !u!1001 &2877792097006306670
 PrefabInstance:
   m_ObjectHideFlags: 0

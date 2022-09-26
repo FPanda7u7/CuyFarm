@@ -62,14 +62,12 @@ public class Cuy : MonoBehaviour
         hour = GameManager.instance.hour; // horas contadas
         day = GameManager.instance.day; // días contados
         _hour = GameManager.instance._hour; // 0 - 24 horas
-
-        
+    
         Salud();
         Crecimiento();
         Hambre();
         Aparearse();
-        Embarazo();
-        
+        Embarazo();      
     }
 
     public void Salud()
