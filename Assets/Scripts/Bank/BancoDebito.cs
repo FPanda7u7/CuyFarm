@@ -41,13 +41,13 @@ public class BancoDebito : MonoBehaviour
         {
             if (GameManager.instance.dineroEfectivo >= tmpDeposito)
             {
-                if (tmpDeposito != 0)
+                if (tmpDeposito > 0)
                 {
                     GameManager.instance.dineroEfectivo -= tmpDeposito;
                     GameManager.instance.dineroDebito += tmpDeposito;
                     message.text = "Deposito realizado con éxito";
                 }else{
-                    message.text = "Ingrese un monto diferente de 0";
+                    message.text = "Ingrese un monto diferente";
                 }   
             }else{
                 message.text = "Dinero insuficiente";
@@ -64,13 +64,13 @@ public class BancoDebito : MonoBehaviour
         {
             if (dineroPlayer >= tmpRetiro)
             {
-                if (tmpRetiro != 0)
+                if (tmpRetiro > 0)
                 {
                     GameManager.instance.dineroDebito -= tmpRetiro;
                     GameManager.instance.dineroEfectivo += tmpRetiro;
                     message.text = "Retiro realizado con éxito";
                 }else{
-                    message.text = "Ingrese un monto diferente de 0";
+                    message.text = "Ingrese un monto diferente";
                 }              
             }else{
                 message.text = "Saldo insuficiente";

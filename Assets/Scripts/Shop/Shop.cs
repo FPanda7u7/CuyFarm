@@ -22,15 +22,17 @@ public class Shop : MonoBehaviour
 
     public float interes;
 
-    public TMP_Text textTotal;
-    public TMP_Text textFoodCuy;
-    public TMP_Text textFoodCuyEspecial;
-    public TMP_Text textFoodPlayer;
+    public TextMeshProUGUI textFoodCuy;
+    public TextMeshProUGUI textFoodCuyEspecial;
+    public TextMeshProUGUI textFoodPlayer;
 
-    public TMP_Text dineroPlayer;
-    public TMP_Text dineroDebito;
-    public TMP_Text dineroCredito;
-    public TMP_Text dineroCreditoAumento;
+    public TextMeshProUGUI textTotal;
+    public TextMeshProUGUI textMessage;
+
+    public TextMeshProUGUI dineroPlayer;
+    public TextMeshProUGUI dineroDebito;
+    public TextMeshProUGUI dineroCredito;
+    public TextMeshProUGUI dineroCreditoAumento;
 
     void Start()
     {
@@ -44,15 +46,15 @@ public class Shop : MonoBehaviour
     {
         countTotal = (_foodCuy.cost * countFoodCuy) + (_foodPlayer.cost * countFoodPlayer) + (_foodCuyEspecial.cost * countFoodCuyEspecial);
 
-        textTotal.text = "Total: $" + countTotal.ToString();
+        textTotal.text = "S/" + countTotal.ToString();
         textFoodCuy.text = countFoodCuy.ToString();
         textFoodCuyEspecial.text = countFoodCuyEspecial.ToString();
         textFoodPlayer.text = countFoodPlayer.ToString();
 
-        dineroPlayer.text = "$" + GameManager.instance.dineroEfectivo.ToString();
-        dineroDebito.text = "$" + GameManager.instance.dineroDebito.ToString();
-        dineroCredito.text = "$" + GameManager.instance.dineroCredito.ToString();
-        dineroCreditoAumento.text = "$" + (((int)(countTotal * interes)) - countTotal).ToString();
+        dineroPlayer.text = "S/" + GameManager.instance.dineroEfectivo.ToString();
+        dineroDebito.text = "S/" + GameManager.instance.dineroDebito.ToString();
+        dineroCredito.text = "S/" + GameManager.instance.dineroCredito.ToString();
+        dineroCreditoAumento.text = " Interés: S/" + (((int)(countTotal * interes)) - countTotal).ToString();
     }
 
     public void AgregarAlCarrito(string comida)
@@ -109,6 +111,7 @@ public class Shop : MonoBehaviour
         countFoodCuy = 0;
         countFoodCuyEspecial = 0;
         countFoodPlayer = 0;
+        textMessage.text = "Compra realizada";
     }
 
     public void PagarEfectivo()
@@ -117,7 +120,9 @@ public class Shop : MonoBehaviour
         {
             GameManager.instance.dineroEfectivo -= countTotal;
             AgregarInventarioPlayer();
-        }      
+        }else{
+            textMessage.text = "Compra fallida";
+        }   
     }
 
     public void PagarDebito()
@@ -126,6 +131,8 @@ public class Shop : MonoBehaviour
         {
             GameManager.instance.dineroDebito -= countTotal;
             AgregarInventarioPlayer();
+        }else{
+            textMessage.text = "Compra fallida";
         }       
     }
 

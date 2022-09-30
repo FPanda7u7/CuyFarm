@@ -21,7 +21,7 @@ public class PlayerStats : MonoBehaviour
 
 
     public int tempHoras;
-    public int _hour;
+    public float _hour;
     public float time;
     public float fill2;
 

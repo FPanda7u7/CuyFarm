@@ -44,7 +44,12 @@ public class BancoCredito : MonoBehaviour
         {
             prestamoTotal = (int)(prestamoSolicitado * interes);
 
-            prestamoTotalTxt.text = "$ " + prestamoTotal.ToString();
+            if (prestamoTotal > 0)
+            {
+                prestamoTotalTxt.text = "$ " + prestamoTotal.ToString();
+            }else{
+                prestamoTotalTxt.text = "$ 0";
+            }    
         }
         else
         {
@@ -54,9 +59,9 @@ public class BancoCredito : MonoBehaviour
 
     public void PagarPrestamo()
     {
-        if (pagoSolicitado == 0)
+        if (pagoSolicitado <= 0)
         {
-            message.text = "Ingrese un monto diferente de 0";
+            message.text = "Ingrese un monto diferente";
         }
 
         if (GameManager.instance.dineroCredito == 0)
@@ -99,12 +104,13 @@ public class BancoCredito : MonoBehaviour
     {
         if (hayPrestamo)
         {
-            if (prestamoSolicitado == 0)
+            if (prestamoSolicitado <= 0)
             {
-                message.text = "Ingrese un monto diferente de 0";
+                message.text = "Ingrese un monto diferente";
             }else{
                 GameManager.instance.dineroDebito += prestamoSolicitado;
                 GameManager.instance.dineroCredito += prestamoTotal;
+                prestamoSolicitado = 0;
                 message.text = "Préstamo realizado con éxito";
             }  
         }else{
@@ -117,6 +123,8 @@ public class BancoCredito : MonoBehaviour
     public void ReadPrestamo(string _value)
     {
         hayPrestamo = int.TryParse(_value, out prestamoSolicitado);
+
+        //prestamoSolicitado = Mathf.Clamp(prestamoSolicitado, 0, 10000);
     }
 
     public void ReadPago(string _value)

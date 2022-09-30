@@ -25,6 +25,7 @@ public class Home : MonoBehaviour
         if (player.countFoodPlayer > 0)
         {
             player.hambre += 100;
+            player.countFoodPlayer--;
         }
     }
 

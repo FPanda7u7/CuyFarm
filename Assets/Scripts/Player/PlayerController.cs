@@ -4,62 +4,76 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    CharacterController characterController;
+    private CharacterController characterController;
 
-    [Header("Opciones de Personaje")]
-    public float walkSpeed = 6.0f;
-    public float runSpeed = 10.0f;
-    public float jumpSpeed = 8.0f;
-    public float gravity = 20.0f;
+    [Header("Movement Settings")]
 
-    [Header("Opciones de Cámara")]
-    public Camera cam;
-    public float mouseHorizontal = 3.0f;
-    public float mouseVertical = 2.0f;
+    [SerializeField] private float walkSpeed = 5f;
+    [SerializeField] private float runSpeed = 8f;
+    [SerializeField] private float jumpForce = 1.5f;
+    [SerializeField] private float gravityScale = -20f;
 
-    public float minRotation = -65.0f;
-    public float maxRotation = 60.0f;
-    float h_mouse, v_mouse;
+    [Header("Camera Settings")]
 
-    private Vector3 move = Vector3.zero;
+    [SerializeField] private float sensitivity = 1f;
+    [SerializeField] private Transform camTransform;
+    [SerializeField][Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
 
-    // Start is called before the first frame update
+    private Vector3 moveInput;
+    private Vector2 rotationInput;
+    private float cameraVerticalAngle;
+
+    Vector2 currentMouseDelta = Vector2.zero;
+    Vector2 currentMouseDeltaVelocity = Vector2.zero;
+    float cameraPitch = 0.0f;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        //Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (GameManager.instance.staticPlayer)
         {
             return;
         }
-        
-        h_mouse = mouseHorizontal * Input.GetAxis("Mouse X");
-        v_mouse += mouseVertical * Input.GetAxis("Mouse Y");
 
-        v_mouse = Mathf.Clamp(v_mouse, minRotation, maxRotation);
-        cam.transform.localEulerAngles = new Vector3(-v_mouse, 0, 0);
-        transform.Rotate(0, h_mouse, 0);
+        Look();
+        Movement();
+    }
 
+    private void Movement()
+    {        
         if (characterController.isGrounded)
         {
-            move = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+            moveInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+            moveInput = Vector3.ClampMagnitude(moveInput, 1f);
 
             if (Input.GetKey(KeyCode.LeftShift))
-                move = transform.TransformDirection(move) * runSpeed;
+                moveInput = transform.TransformDirection(moveInput) * runSpeed;
             else
-                move = transform.TransformDirection(move) * walkSpeed;
+                moveInput = transform.TransformDirection(moveInput) * walkSpeed;
 
-            if (Input.GetKey(KeyCode.Space))
-                move.y = jumpSpeed;
+            if (Input.GetButtonDown("Jump"))
+                moveInput.y = Mathf.Sqrt(jumpForce * -2f * gravityScale);
         }
 
-        move.y -= gravity * Time.deltaTime;
+        moveInput.y += gravityScale * Time.deltaTime;
+        characterController.Move(moveInput * Time.deltaTime);
+    }
 
-        characterController.Move(move * Time.deltaTime);
+    private void Look()
+    {
+        Vector2 targetMouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+
+        currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, targetMouseDelta, ref currentMouseDeltaVelocity, mouseSmoothTime);
+
+        cameraPitch -= currentMouseDelta.y * sensitivity;
+        cameraPitch = Mathf.Clamp(cameraPitch, -70.0f, 70.0f);
+
+        camTransform.localEulerAngles = Vector3.right * cameraPitch;
+        transform.Rotate(Vector3.up * currentMouseDelta.x * sensitivity);
     }
 }
