@@ -7,22 +7,25 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject menu;
     public GameObject creditos;
-    
+
+    public GameObject introduccion;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Play()
     {
-        SceneManager.LoadScene("Gameplay");
+        introduccion.SetActive(true);
+        //SceneManager.LoadScene("Gameplay");
     }
 
     public void Credits()
@@ -35,5 +38,10 @@ public class MainMenu : MonoBehaviour
     {
         creditos.SetActive(false);
         menu.SetActive(true);
+    }
+
+    public void IrAlGameplay()
+    {
+        SceneManager.LoadScene("Gameplay");
     }
 }
