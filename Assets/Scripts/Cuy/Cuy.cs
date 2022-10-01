@@ -17,16 +17,16 @@ public class Cuy : MonoBehaviour
     private bool creciendo;
     private float tiempoEdad;
     private float hour;
-    private float day;
-    private float _day;
-    private float _hour;
+    private float day;      // horas contadas
+    private float _day;     // días contados
+    private float _hour;    // 0 - 24 horas
 
     public int health = 3;
     
     [Header("Alimentación")]
     public bool hambre;
-    private float tmp_tiempoComer;
     public float tiempoComer;
+    private float tmp_tiempoComer;
 
     [Header("Embarazo")]
     public bool embarazado;
@@ -63,7 +63,7 @@ public class Cuy : MonoBehaviour
     {
         hour = GameManager.instance.hour; // horas contadas
         day = GameManager.instance.day; // días contados
-        _hour = GameManager.instance._hour; // 0 - 24 horas
+        _hour = (int)GameManager.instance._hour; // 0 - 24 horas
     
         Salud();
         Crecimiento();

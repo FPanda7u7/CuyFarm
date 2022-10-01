@@ -41,16 +41,22 @@ public class CuyInteractable : Interactable
 
     protected override void Interact()
     {
-        if (cuy.hambre && player.countFoodCuy > 0)
+        if (cuy.hambre)
         {
-            if (cuy.health < 3 && player.countFoodEspecial > 0)
+            if (cuy.health < 3 && player.inventario.comidaCuyEspecial > 0)
             {
                 cuy.health++;
-                player.countFoodEspecial--;
-            }else{
-                player.countFoodCuy--;
+                player.inventario.comidaCuyEspecial--;
+                cuy.hambre = false;
+                return;
             }
-            cuy.hambre = false;
+
+            if (player.inventario.comidaCuy > 0)
+            {
+                player.inventario.comidaCuy--;
+                cuy.hambre = false;
+                return;
+            }
         }
     }
 

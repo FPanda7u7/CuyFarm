@@ -5,15 +5,15 @@ using TMPro;
 
 public class Shop : MonoBehaviour
 {
-    public PlayerStats player;
+    public PlayerInventory player;
 
     public GameObject foodCuy;
     public GameObject foodCuyEspecial;
     public GameObject foodPlayer;
 
-    private Object _foodCuy;
-    private Object _foodCuyEspecial;
-    private Object _foodPlayer;
+    private Item _foodCuy;
+    private Item _foodCuyEspecial;
+    private Item _foodPlayer;
 
     public int countFoodCuy;
     public int countFoodCuyEspecial;
@@ -36,15 +36,15 @@ public class Shop : MonoBehaviour
 
     void Start()
     {
-        _foodCuy = foodCuy.GetComponent<Object>();
-        _foodCuyEspecial = foodCuyEspecial.GetComponent<Object>();
-        _foodPlayer = foodPlayer.GetComponent<Object>();
+        _foodCuy = foodCuy.GetComponent<Item>();
+        _foodCuyEspecial = foodCuyEspecial.GetComponent<Item>();
+        _foodPlayer = foodPlayer.GetComponent<Item>();
     }
 
     
     void Update()
     {
-        countTotal = (_foodCuy.cost * countFoodCuy) + (_foodPlayer.cost * countFoodPlayer) + (_foodCuyEspecial.cost * countFoodCuyEspecial);
+        countTotal = (_foodCuy.data.cost * countFoodCuy) + (_foodPlayer.data.cost * countFoodPlayer) + (_foodCuyEspecial.data.cost * countFoodCuyEspecial);
 
         textTotal.text = "S/" + countTotal.ToString();
         textFoodCuy.text = countFoodCuy.ToString();
@@ -97,15 +97,15 @@ public class Shop : MonoBehaviour
     {
         for (int i = 0; i < countFoodCuy; i++)
         {
-            player.countFoodCuy++;
+            player.comidaCuy++;
         }
         for (int i = 0; i < countFoodCuyEspecial; i++)
         {
-            player.countFoodEspecial++;
+            player.comidaCuyEspecial++;
         }
         for (int i = 0; i < countFoodPlayer; i++)
         {
-            player.countFoodPlayer++;
+            player.comidaPlayer++;
         }
         countTotal = 0;
         countFoodCuy = 0;

@@ -7,11 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
-    public List<Cuy> CuyesList;
+    public PlayerInventory inventario;
     
-    public int countFoodCuy;
-    public int countFoodEspecial;
-    public int countFoodPlayer;
+    public List<Cuy> CuyesList;
     
     public int dinero; //Dinero
 
@@ -30,13 +28,16 @@ public class PlayerStats : MonoBehaviour
 
     public Transform hospital;
 
-    public TextMeshProUGUI[] inventario;
-
     public GameObject stats;
     public List<TextMeshProUGUI> statsText;
     public Cuy cuy;
 
     public GameObject canvasPerder;
+
+    private void Awake()
+    {
+        inventario = GetComponent<PlayerInventory>();    
+    }
 
     private void Start()
     {
@@ -46,12 +47,7 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         dinero = GameManager.instance.dineroEfectivo;
-
         _hour = GameManager.instance._hour;
-
-        inventario[0].text = countFoodCuy.ToString();
-        inventario[1].text = countFoodEspecial.ToString();
-        inventario[2].text = countFoodPlayer.ToString();
 
         Dormir();
 
@@ -72,9 +68,9 @@ public class PlayerStats : MonoBehaviour
             GameManager.instance.dineroCredito += 75;
             hambre = hambreMax;
         }
-
         Perder();
     }
+
     public void CheckColor(Image barra)
     {
         if (barra.fillAmount >= 0.7)

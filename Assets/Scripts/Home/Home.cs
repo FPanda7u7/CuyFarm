@@ -22,10 +22,10 @@ public class Home : MonoBehaviour
 
     public void Comer()
     {
-        if (player.countFoodPlayer > 0)
+        if (player.inventario.comidaPlayer > 0)
         {
             player.hambre += 100;
-            player.countFoodPlayer--;
+            player.inventario.comidaPlayer--;
         }
     }
 

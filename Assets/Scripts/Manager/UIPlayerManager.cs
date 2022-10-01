@@ -24,9 +24,9 @@ public class UIPlayerManager : MonoBehaviour
     
     void Update()
     {
-        textDineroEfectivo.text = "Dinero: $" + GameManager.instance.dineroEfectivo.ToString();
-        textDineroDebito.text = "Debito: $" + GameManager.instance.dineroDebito.ToString();
-        textDineroCredito.text = "Deuda: $" + GameManager.instance.dineroCredito.ToString();
+        textDineroEfectivo.text = "Dinero: S/" + GameManager.instance.dineroEfectivo.ToString();
+        textDineroDebito.text = "Debito: S/" + GameManager.instance.dineroDebito.ToString();
+        textDineroCredito.text = "Deuda: S/" + GameManager.instance.dineroCredito.ToString();
 
         horas = (int)GameManager.instance._hour;
         dias = (int)GameManager.instance._day;
