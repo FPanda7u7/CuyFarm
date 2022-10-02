@@ -93,7 +93,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void AgregarInventarioPlayer()
+    /*public void AgregarInventarioPlayer()
     {
         for (int i = 0; i < countFoodCuy; i++)
         {
@@ -112,6 +112,26 @@ public class Shop : MonoBehaviour
         countFoodCuyEspecial = 0;
         countFoodPlayer = 0;
         textMessage.text = "Compra realizada";
+    }*/
+
+    public void AgregarInventarioPlayer()
+    {
+        player.comidaCuy += countFoodCuy;
+        player.comidaCuyEspecial += countFoodCuyEspecial;
+        player.comidaPlayer += countFoodPlayer;
+        
+        if (countTotal != 0)
+        {
+            textMessage.text = "Compra realizada";
+        }else{
+            textMessage.text = "Carrito vacío";
+        }
+
+        countTotal = 0;
+        countFoodCuy = 0;
+        countFoodCuyEspecial = 0;
+        countFoodPlayer = 0;
+        
     }
 
     public void PagarEfectivo()

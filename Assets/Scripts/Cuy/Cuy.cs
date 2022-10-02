@@ -16,10 +16,10 @@ public class Cuy : MonoBehaviour
     //Tiempos
     private bool creciendo;
     private float tiempoEdad;
-    private float hour;
-    private float day;      // horas contadas
-    private float _day;     // días contados
-    private float _hour;    // 0 - 24 horas
+    private int hour;     // horas contadas
+    public int day;      // días contados
+    private int _day;     // 0 - 7 días
+    private int _hour;    // 0 - 24 horas
 
     public int health = 3;
     
@@ -30,16 +30,19 @@ public class Cuy : MonoBehaviour
 
     [Header("Embarazo")]
     public bool embarazado;
-    public float tiempoEmbarazo;
+    public int tiempoEmbarazo;
+    public int tmpEmbarazo;
 
     [Header("Celo")]
     public bool enCelo;
-    private bool tmp_enCelo;
-    public float tiempoEnCelo;
-
+    private bool tmp_EnCelo;
+    public int tmpDay = -1;
+    public int timepoEnCelo;
+    public int tmpEnCelo;
+    
+    [Header("Adicional")]
     public GameObject gameObjectCuy;
-    private PlayerStats player;
-    private CuyController cuyController;
+    public CuyController cuyController;
 
     public MeshRenderer materialCuy;
     public Material materialMacho;
@@ -48,24 +51,24 @@ public class Cuy : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>(); 
         cuyController = GetComponent<CuyController>();   
     }
 
     void Start()
     {
         AgregarMaterial();
-        player.CuyesList.Add(this);
+        PlayerStats.instance.CuyesList.Add(this);
     }
 
     
     void Update()
     {
-        hour = GameManager.instance.hour; // horas contadas
-        day = GameManager.instance.day; // días contados
+        hour = (int)GameManager.instance.hour; // horas contadas
+        day = (int)GameManager.instance.day; // días contados
         _hour = (int)GameManager.instance._hour; // 0 - 24 horas
+        _day = (int)GameManager.instance._day; // 0- 7 días
     
-        Salud();
+        //Salud();
         Crecimiento();
         Hambre();
         Aparearse();
@@ -77,7 +80,7 @@ public class Cuy : MonoBehaviour
         health = Mathf.Clamp(health, 0, 3);
         if (health == 0)
         {
-            player.CuyesList.Remove(this);
+            PlayerStats.instance.CuyesList.Remove(this);
             Destroy(this.gameObject);
         }
     }
@@ -111,19 +114,19 @@ public class Cuy : MonoBehaviour
 
     public void Aparearse()
     {
-        if (!enCelo)
+        if (!enCelo && tmpDay != day)
         {
-            if (!tmp_enCelo)
+            if (!tmp_EnCelo)
             {
-                tiempoEnCelo = day;
-                tmp_enCelo = true;
+                tmpEnCelo = day;
+                tmp_EnCelo = true;
             }else{
-                if (day >= tiempoEnCelo + 3)
+                if (day >= tmpEnCelo + timepoEnCelo)
                 {
                     if (estado == Estado.sano && edad == Edad.adulto && !embarazado)
                     {
                         enCelo = true;
-                        tmp_enCelo = false;
+                        tmp_EnCelo = false;
                         Debug.Log("en celo");
                     }
                 }
@@ -137,26 +140,29 @@ public class Cuy : MonoBehaviour
     {
         if (embarazado)
         {
-            if (day >= tiempoEmbarazo + 6)
+            if (day >= tmpEmbarazo + tiempoEmbarazo)
             {
                 int cantidaHijos = Random.Range(3, 6);
                 for (int i = 0; i < cantidaHijos; i++)
                 {
-                    GameObject cuyBebe = Instantiate(gameObjectCuy, this.transform);
-                    cuyBebe.transform.SetParent(null);
-                    cuyBebe.GetComponent<Cuy>().genero = (Genero)Random.Range(0, 2);
+                    GameObject cuyBebe = Instantiate(gameObjectCuy, transform.position, Quaternion.identity);
+                    Cuy _cuyBebe = cuyBebe.GetComponent<Cuy>();
+                    _cuyBebe.embarazado = false;
+                    _cuyBebe.edad = Cuy.Edad.bebe;
+                    _cuyBebe.genero = (Genero)Random.Range(0, 2);
+                    
                 }
                 embarazado = false;
-                tiempoEmbarazo = 0;
+                tmpEmbarazo = 0;
             }
         }
     }
 
     public void BuscarPareja()
     {
-        for (int i = 0; i < player.CuyesList.Count; i++)
+        for (int i = 0; i < PlayerStats.instance.CuyesList.Count; i++)
         {
-            Cuy cuy = player.CuyesList[i].GetComponent<Cuy>();
+            Cuy cuy = PlayerStats.instance.CuyesList[i].GetComponent<Cuy>();
             if (this.gameObject.GetInstanceID() != cuy.GetInstanceID() &&
                 cuy.estado == Estado.sano && cuy.edad == Edad.adulto && !cuy.embarazado && cuy.enCelo && cuy.genero != genero)
             {
@@ -189,7 +195,7 @@ public class Cuy : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
             if (day >= tiempoEdad + 15)
             {
-                player.CuyesList.Remove(this);
+                PlayerStats.instance.CuyesList.Remove(this);
                 Destroy(this.gameObject);
             }
         }  
@@ -203,23 +209,5 @@ public class Cuy : MonoBehaviour
         }else{
             materialCuy.material = materialHembra;
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Cuy")
-        {
-            Cuy cuy = other.GetComponent<Cuy>();
-            if (cuy.estado == Estado.sano && cuy.edad == Edad.adulto && !cuy.embarazado && cuy.enCelo && cuy.genero != genero)
-            {
-                if (genero == Genero.hembra)
-                {
-                    embarazado = true;
-                    tiempoEmbarazo = day;
-                }
-                cuy.enCelo = false;
-                cuyController.buscandoPareja = false;
-            }
-        }
-    }
+    }   
 }

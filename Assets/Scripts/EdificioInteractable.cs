@@ -44,5 +44,13 @@ public class EdificioInteractable : Interactable
             shop.countFoodPlayer = 0;
             shop.textMessage.text = "Bienvenido";
         }
+
+        ShopCuy shopCuy = GetComponent<ShopCuy>();
+        if (shopCuy != null){
+            shopCuy.countCuyMacho = 0;
+            shopCuy.countCuyHembra = 0;
+            shopCuy.textMessageVenta.text = "";
+            shopCuy.textMessageCompra.text = "Bienvenido";
+        }
     }
 }

@@ -44,12 +44,12 @@ public class CuyController : MonoBehaviour
         
         if (enCerca && agente.enabled == true)
         {
-            if (transform.position.x == objetivo.x && transform.position.z == objetivo.z)
+            if (Vector3.Distance(transform.position, objetivo) <= 0.215)
             {
                 RandomPosition();
             }
             agente.destination = objetivo;
-        }
+        }   
     }
 
     public void RandomPosition()

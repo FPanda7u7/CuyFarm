@@ -43,7 +43,7 @@ public class CuyInteractable : Interactable
     {
         if (cuy.hambre)
         {
-            if (cuy.health < 3 && player.inventario.comidaCuyEspecial > 0)
+            if (player.inventario.comidaCuyEspecial > 0 && player.inventario.selection == 1)
             {
                 cuy.health++;
                 player.inventario.comidaCuyEspecial--;
@@ -51,7 +51,7 @@ public class CuyInteractable : Interactable
                 return;
             }
 
-            if (player.inventario.comidaCuy > 0)
+            if (player.inventario.comidaCuy > 0 && player.inventario.selection == 0)
             {
                 player.inventario.comidaCuy--;
                 cuy.hambre = false;

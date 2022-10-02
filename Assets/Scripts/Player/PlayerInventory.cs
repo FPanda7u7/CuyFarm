@@ -14,7 +14,7 @@ public class PlayerInventory : MonoBehaviour
     public int comidaCuyEspecial;
     public int comidaPlayer;
     
-    public int tmpSelection;
+    public int selection;
 
     public TextMeshProUGUI textComidaCuy;
     public TextMeshProUGUI textComidaCuyEspecial;
@@ -43,38 +43,38 @@ public class PlayerInventory : MonoBehaviour
     {
         if (Input.GetAxisRaw("Mouse ScrollWheel") < 0f)
         {
-            if (tmpSelection >= 2)
-                tmpSelection = 0;
+            if (selection >= 2)
+                selection = 0;
             else
-                tmpSelection++;
+                selection++;
 
-            SelectItem(tmpSelection);
+            SelectItem(selection);
         }
 
         if (Input.GetAxisRaw("Mouse ScrollWheel") > 0f)
         {
-            if (tmpSelection <= 0)
-                tmpSelection = 2;
+            if (selection <= 0)
+                selection = 2;
             else
-                tmpSelection--;
+                selection--;
 
-            SelectItem(tmpSelection);
+            SelectItem(selection);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            tmpSelection = 0;
-            SelectItem(tmpSelection);
+            selection = 0;
+            SelectItem(selection);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            tmpSelection = 1;
-            SelectItem(tmpSelection);
+            selection = 1;
+            SelectItem(selection);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            tmpSelection = 2;
-            SelectItem(tmpSelection);
+            selection = 2;
+            SelectItem(selection);
         }
     }
 }

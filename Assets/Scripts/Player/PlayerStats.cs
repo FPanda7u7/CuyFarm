@@ -10,18 +10,16 @@ public class PlayerStats : MonoBehaviour
     public PlayerInventory inventario;
     
     public List<Cuy> CuyesList;
-    
-    public int dinero; //Dinero
 
     public float tmpHambre;
     public float hambre;
-    public float hambreMax = 250;
+    public float hambreMax = 200;
 
 
     public int tempHoras;
     public float _hour;
     public float time;
-    public float fill2;
+    public float fill;
 
     public Color barraColor;
     public Image barHambre;
@@ -34,8 +32,15 @@ public class PlayerStats : MonoBehaviour
 
     public GameObject canvasPerder;
 
+    public static PlayerStats instance { get; private set; }
+
     private void Awake()
     {
+        if (instance != null && instance != this)
+            Destroy(this);
+        else
+            instance = this;
+
         inventario = GetComponent<PlayerInventory>();    
     }
 
@@ -46,7 +51,6 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        dinero = GameManager.instance.dineroEfectivo;
         _hour = GameManager.instance._hour;
 
         Dormir();
@@ -60,11 +64,20 @@ public class PlayerStats : MonoBehaviour
         hambre = Mathf.Clamp(hambre, 0, hambreMax);  
         barHambre.fillAmount = hambre / hambreMax;
         
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (inventario.comidaPlayer > 0 && inventario.selection == 2)
+            {
+                hambre += 100;
+                inventario.comidaPlayer--;
+            }
+        }
+        
         CheckColor(barHambre);
 
         if (hambre <= 0)
         {
-            this.transform.position = hospital.position;
+            transform.position = hospital.position;
             GameManager.instance.dineroCredito += 75;
             hambre = hambreMax;
         }

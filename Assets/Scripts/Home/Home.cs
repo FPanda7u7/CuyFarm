@@ -39,8 +39,8 @@ public class Home : MonoBehaviour
             Debug.Log("No puedes dormir");
         }
 
-        player.fill2 = 2;
-        player.barHambre.fillAmount = player.fill2;
+        player.fill = 2;
+        player.barHambre.fillAmount = player.fill;
         player.CheckColor(player.barHambre);
 
         //Comer();
