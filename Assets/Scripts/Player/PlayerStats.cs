@@ -11,10 +11,12 @@ public class PlayerStats : MonoBehaviour
     
     public List<Cuy> CuyesList;
 
+    public bool _sueño;
+    public bool _hambre;
+    
     public float tmpHambre;
     public float hambre;
     public float hambreMax;
-
 
     public int tempHoras;
     public float _hour;
@@ -53,36 +55,28 @@ public class PlayerStats : MonoBehaviour
     {
         _hour = GameManager.instance._hour;
 
+        if (_sueño)
+        {
+            gameObject.transform.position = hospital.position;
+            gameObject.transform.rotation = hospital.rotation;
+            _sueño = false;
+        }
+
+        if (_hambre)
+        {
+            gameObject.transform.position = hospital.position;
+            gameObject.transform.rotation = hospital.rotation;
+            _hambre = false;
+        }
+
         Dormir();
+        Hambre();
+        Perder();
 
         if (cuy != null)
         {
             MostrarStatsCuy();
-        }
-
-        hambre -= Time.deltaTime;
-        hambre = Mathf.Clamp(hambre, 0, hambreMax);  
-        barHambre.fillAmount = hambre / hambreMax;
-        
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (inventario.comidaPlayer > 0 && inventario.selection == 2)
-            {
-                hambre += 100;
-                inventario.comidaPlayer--;
-            }
-        }
-        
-        CheckColor(barHambre);
-
-        if (hambre <= 0)
-        {
-            NotificacionManager.instance.CrearNotificacion("Procura comer, se te cobro S/75");
-            transform.position = hospital.position;
-            GameManager.instance.dineroCredito += 75;
-            hambre = hambreMax;
-        }
-        Perder();
+        }               
     }
 
     public void CheckColor(Image barra)
@@ -102,14 +96,40 @@ public class PlayerStats : MonoBehaviour
         barra.color = barraColor;
     }
 
+    public void Hambre()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (inventario.comidaPlayer > 0 && inventario.selection == 2)
+            {
+                hambre += 100;
+                inventario.comidaPlayer--;
+            }
+        } 
+
+        hambre -= Time.deltaTime;
+        hambre = Mathf.Clamp(hambre, 0, hambreMax);  
+        barHambre.fillAmount = hambre / hambreMax;
+
+        if (hambre <= 0)
+        {
+            NotificacionManager.instance.CrearNotificacion("Procura comer, se te cobro S/75");
+            GameManager.instance.dineroCredito += 75;
+            hambre = hambreMax;
+            _hambre = true;
+        }
+
+        CheckColor(barHambre);
+    }
+    
     public void Dormir()
     {
         if (GameManager.instance._hour >= 23)
         {
             NotificacionManager.instance.CrearNotificacion("Procura dormir, se te cobro S/50");
             GameManager.instance.timeElapsed += 150f;
-            this.transform.position = hospital.position;
             GameManager.instance.dineroCredito += 50;
+            _sueño = true;
         }
     }
 

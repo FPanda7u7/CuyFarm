@@ -78,6 +78,7 @@ public class ShopCuy : MonoBehaviour
         {
             GameObject _cuy = Instantiate(gameObjectCuy, cerca.position, cerca.rotation);
             Cuy cuyBebe = _cuy.GetComponent<Cuy>();
+            cuyBebe.edad = Cuy.Edad.bebe;
             cuyBebe.genero = Cuy.Genero.macho;
             cuyBebe.embarazado = false;
         }
@@ -85,6 +86,7 @@ public class ShopCuy : MonoBehaviour
         {
             GameObject _cuy = Instantiate(gameObjectCuy, cerca.position, cerca.rotation);
             Cuy cuyBebe = _cuy.GetComponent<Cuy>();
+            cuyBebe.edad = Cuy.Edad.bebe;
             cuyBebe.genero = Cuy.Genero.hembra;
             cuyBebe.embarazado = false;
         }

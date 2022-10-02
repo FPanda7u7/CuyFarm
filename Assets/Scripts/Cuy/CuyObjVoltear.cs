@@ -6,15 +6,12 @@ public class CuyObjVoltear : MonoBehaviour
 {
 
     public GameObject Player;
-
     public Cuy Cuy;
 
     public GameObject hambreAlert;
     public GameObject embarazoAlert;
     public GameObject vidaAlert;
     public GameObject celoAlert;
-
-    //public GameObject stats;
 
     private void Awake()
     {
@@ -27,7 +24,6 @@ public class CuyObjVoltear : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         hambreAlert.SetActive(Cuy.hambre);
@@ -43,8 +39,6 @@ public class CuyObjVoltear : MonoBehaviour
         }
         
         celoAlert.SetActive(Cuy.enCelo);
-
-        //transform.LookAt(Player.transform);
 
         hambreAlert.transform.LookAt(Player.transform);
         embarazoAlert.transform.LookAt(Player.transform);
