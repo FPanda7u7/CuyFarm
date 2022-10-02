@@ -13,7 +13,7 @@ public class PlayerStats : MonoBehaviour
 
     public float tmpHambre;
     public float hambre;
-    public float hambreMax = 200;
+    public float hambreMax;
 
 
     public int tempHoras;
@@ -77,6 +77,7 @@ public class PlayerStats : MonoBehaviour
 
         if (hambre <= 0)
         {
+            NotificacionManager.instance.CrearNotificacion("Procura comer, se te cobro S/75");
             transform.position = hospital.position;
             GameManager.instance.dineroCredito += 75;
             hambre = hambreMax;
@@ -105,6 +106,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (GameManager.instance._hour >= 23)
         {
+            NotificacionManager.instance.CrearNotificacion("Procura dormir, se te cobro S/50");
             GameManager.instance.timeElapsed += 150f;
             this.transform.position = hospital.position;
             GameManager.instance.dineroCredito += 50;

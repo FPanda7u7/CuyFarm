@@ -68,7 +68,7 @@ public class Cuy : MonoBehaviour
         _hour = (int)GameManager.instance._hour; // 0 - 24 horas
         _day = (int)GameManager.instance._day; // 0- 7 días
     
-        //Salud();
+        Salud();
         Crecimiento();
         Hambre();
         Aparearse();
@@ -81,6 +81,7 @@ public class Cuy : MonoBehaviour
         if (health == 0)
         {
             PlayerStats.instance.CuyesList.Remove(this);
+            NotificacionManager.instance.CrearNotificacion("Se murió un cuy :c");
             Destroy(this.gameObject);
         }
     }
@@ -152,6 +153,7 @@ public class Cuy : MonoBehaviour
                     _cuyBebe.genero = (Genero)Random.Range(0, 2);
                     
                 }
+                NotificacionManager.instance.CrearNotificacion("Un cuy dió a luz a " + cantidaHijos);
                 embarazado = false;
                 tmpEmbarazo = 0;
             }
