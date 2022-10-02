@@ -1,10 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Home : MonoBehaviour
 {
     public PlayerStats player;
+
+    public TextMeshProUGUI days;
+    public TextMeshProUGUI hours;
+    public TextMeshProUGUI message;
+
+    public Button boton;
+
+    public int horas;
+    public int dias;
 
     [SerializeField] private EdificioInteractable interactuable;
 
@@ -16,33 +27,36 @@ public class Home : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        horas = (int)GameManager.instance._hour;
+        dias = (int)GameManager.instance._day;
 
+        hours.text = string.Format("{0:00}:00", (horas % 24));
+        days.text = GameManager.instance.days[(dias % 7)];
 
-    public void Comer()
-    {
-        if (player.inventario.comidaPlayer > 0)
+        if (horas >= 7)
         {
-            player.hambre += 100;
-            player.inventario.comidaPlayer--;
+            boton.interactable = true;
+            player.sueño = false;
+
+            if (horas <= 22)
+            {
+                player.hambre = true;
+            }
         }
+
     }
 
     public void Dormir()
     {
         if (GameManager.instance._hour >= 22)
         {         
-            GameManager.instance.timeElapsed += 175f;
-            interactuable.VolverGameplay();
+            player.hambre = false;
+            player.sueño = true;
+            GameManager.instance.staticPlayer = true;
+            Time.timeScale = 20;
+            boton.interactable = false;
         }else{
-            Debug.Log("No puedes dormir");
+            message.text = "Solo puedes dormir a partir de las 22:00";
         }
-
-        player.fill = 2;
-        player.barHambre.fillAmount = player.fill;
-        player.CheckColor(player.barHambre);
-
-        //Comer();
     }
 }

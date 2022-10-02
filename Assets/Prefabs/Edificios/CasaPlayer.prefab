@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2823241054054308118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2823241054054308117}
+  - component: {fileID: 2823241054054308116}
+  - component: {fileID: 54556039761790978}
+  - component: {fileID: 54556039247056716}
+  m_Layer: 6
+  m_Name: CasaPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &2823241054054308117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823241054054308118}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -34.58, y: 1.49, z: 38.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1489741917357647828}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2823241054054308116
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823241054054308118}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.896019, y: 2.2723212, z: 0.6760559}
+  m_Center: {x: -4.798176, y: -0.27467203, z: 2.3428955}
+--- !u!114 &54556039761790978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823241054054308118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35e7da690b582944b1d1b21518264cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prompMessage: Presiona E para entrar a tu casa
+  canvasPlayer: {fileID: 0}
+  canvasEdificio: {fileID: 0}
+--- !u!114 &54556039247056716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823241054054308118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748d5288a994ce748b43e62652f56b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  interactuable: {fileID: 54556039761790978}
+--- !u!1001 &7962327211880150279
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2823241054054308117}
+    m_Modifications:
+    - target: {fileID: 8185484343689742441, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+      propertyPath: m_Name
+      value: newCasita
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185484343689742441, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850556268869735123, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850556268869735123, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850556268869735123, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850556268869735123, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850556268869735123, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850556268869735123, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850556268869735123, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850556268869735123, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850556268869735123, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850556268869735123, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850556268869735123, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+--- !u!4 &1489741917357647828 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8850556268869735123, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+  m_PrefabInstance: {fileID: 7962327211880150279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2298930164419853678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8185484343689742441, guid: 60a51bb1fa8587e43af45bd9e84f53ba, type: 3}
+  m_PrefabInstance: {fileID: 7962327211880150279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &5913032279786487818
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2298930164419853678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7759331768739107841, guid: 947a0f06c86818a4d96d7f4311f81d1f, type: 3}

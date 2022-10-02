@@ -11,11 +11,13 @@ public class PlayerStats : MonoBehaviour
     
     public List<Cuy> CuyesList;
 
+    public bool sueño;
+    public bool hambre;
     public bool _sueño;
     public bool _hambre;
     
     public float tmpHambre;
-    public float hambre;
+    public float hambreVal;
     public float hambreMax;
 
     public int tempHoras;
@@ -48,7 +50,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        hambre = hambreMax;
+        hambreVal = hambreMax;
     }
 
     void Update()
@@ -98,33 +100,35 @@ public class PlayerStats : MonoBehaviour
 
     public void Hambre()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (hambre)
         {
-            if (inventario.comidaPlayer > 0 && inventario.selection == 2)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                hambre += 100;
-                inventario.comidaPlayer--;
+                if (inventario.comidaPlayer > 0 && inventario.selection == 2)
+                {
+                    hambreVal += 100;
+                    inventario.comidaPlayer--;
+                }
             }
-        } 
 
-        hambre -= Time.deltaTime;
-        hambre = Mathf.Clamp(hambre, 0, hambreMax);  
-        barHambre.fillAmount = hambre / hambreMax;
+            hambreVal -= Time.deltaTime;
+            hambreVal = Mathf.Clamp(hambreVal, 0, hambreMax);
+            barHambre.fillAmount = hambreVal / hambreMax;
 
-        if (hambre <= 0)
-        {
-            NotificacionManager.instance.CrearNotificacion("Procura comer, se te cobro S/75");
-            GameManager.instance.dineroCredito += 75;
-            hambre = hambreMax;
-            _hambre = true;
-        }
-
-        CheckColor(barHambre);
+            if (hambreVal <= 0)
+            {
+                NotificacionManager.instance.CrearNotificacion("Procura comer, se te cobro S/75");
+                GameManager.instance.dineroCredito += 75;
+                hambreVal = hambreMax;
+                _hambre = true;
+            }
+            CheckColor(barHambre);
+        }      
     }
     
     public void Dormir()
     {
-        if (GameManager.instance._hour >= 23)
+        if (GameManager.instance._hour >= 23 && !sueño)
         {
             NotificacionManager.instance.CrearNotificacion("Procura dormir, se te cobro S/50");
             GameManager.instance.timeElapsed += 150f;

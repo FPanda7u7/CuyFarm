@@ -58,6 +58,14 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+
+        if(_hour > 23 && _hour < 7)
+        {
+            Time.timeScale = 20;
+        }else{
+            
+            //Time.timeScale = 1;
+        }
         
         if (staticPlayer)
             Cursor.lockState = CursorLockMode.Confined;

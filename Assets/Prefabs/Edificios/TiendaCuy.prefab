@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7160396452136876261
 Transform:
@@ -46,8 +46,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7483819, y: 1.7020895, z: 0.7994027}
-  m_Center: {x: 0.07329512, y: 1.4234687, z: -2.2297146}
+  m_Size: {x: 1.9731578, y: 1.5246351, z: 0.34985065}
+  m_Center: {x: -0.03909284, y: 1.3347415, z: 2.3722758}
 --- !u!114 &7878592068071241970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,18 +79,17 @@ MonoBehaviour:
   gameObjectCuy: {fileID: 8748491945291053801, guid: 526a3345f4e890440870f1dd24443357, type: 3}
   costoCuy: 100
   cerca: {fileID: 0}
-  interes: 1.5
   precioVentaCuy: 200
   countCuyMacho: 0
   countCuyHembra: 0
   countTotal: 0
+  textTotalCuys: {fileID: 0}
+  textMessageVenta: {fileID: 0}
   textTotal: {fileID: 0}
   textCuyMacho: {fileID: 0}
   textCuyHembra: {fileID: 0}
+  textMessageCompra: {fileID: 0}
   dineroPlayer: {fileID: 0}
-  dineroDebito: {fileID: 0}
-  dineroCredito: {fileID: 0}
-  dineroCreditoAumento: {fileID: 0}
 --- !u!1001 &3592399747507989965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -128,19 +127,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f287f81b739f3a4ea4b177bdf952318, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9f287f81b739f3a4ea4b177bdf952318, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9f287f81b739f3a4ea4b177bdf952318, type: 3}
-      propertyPath: m_LocalRotation.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f287f81b739f3a4ea4b177bdf952318, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f287f81b739f3a4ea4b177bdf952318, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f287f81b739f3a4ea4b177bdf952318, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f287f81b739f3a4ea4b177bdf952318, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -148,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f287f81b739f3a4ea4b177bdf952318, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f287f81b739f3a4ea4b177bdf952318, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -157,6 +156,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9f287f81b739f3a4ea4b177bdf952318, type: 3}
       propertyPath: m_Name
       value: TiendaCuys
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f287f81b739f3a4ea4b177bdf952318, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f287f81b739f3a4ea4b177bdf952318, type: 3}
