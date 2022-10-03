@@ -28,9 +28,10 @@ public class ShopCuy : MonoBehaviour
 
     public TextMeshProUGUI dineroPlayer;
 
+    public GameObject compraSFX;
+
     void Start()
     {
-        
     }
 
     
@@ -92,6 +93,7 @@ public class ShopCuy : MonoBehaviour
         }
 
         textMessageCompra.text = "Compra realizada";
+        Instantiate(compraSFX);
         countTotal = 0;
         countCuyMacho = 0;
         countCuyHembra = 0;
@@ -104,6 +106,7 @@ public class ShopCuy : MonoBehaviour
             if (GameManager.instance.dineroEfectivo >= countTotal)
             {
                 GameManager.instance.dineroEfectivo -= countTotal;
+                
                 AgregarInventarioPlayer();
             }else{
                 textMessageCompra.text = "Dinero insuficiente";

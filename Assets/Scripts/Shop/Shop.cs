@@ -34,6 +34,8 @@ public class Shop : MonoBehaviour
     public TextMeshProUGUI dineroCredito;
     public TextMeshProUGUI dineroCreditoAumento;
 
+    public GameObject compraSFX;
+
     void Start()
     {
         _foodCuy = foodCuy.GetComponent<Item>();
@@ -93,27 +95,6 @@ public class Shop : MonoBehaviour
         }
     }
 
-    /*public void AgregarInventarioPlayer()
-    {
-        for (int i = 0; i < countFoodCuy; i++)
-        {
-            player.comidaCuy++;
-        }
-        for (int i = 0; i < countFoodCuyEspecial; i++)
-        {
-            player.comidaCuyEspecial++;
-        }
-        for (int i = 0; i < countFoodPlayer; i++)
-        {
-            player.comidaPlayer++;
-        }
-        countTotal = 0;
-        countFoodCuy = 0;
-        countFoodCuyEspecial = 0;
-        countFoodPlayer = 0;
-        textMessage.text = "Compra realizada";
-    }*/
-
     public void AgregarInventarioPlayer()
     {
         player.comidaCuy += countFoodCuy;
@@ -122,6 +103,7 @@ public class Shop : MonoBehaviour
         
         if (countTotal != 0)
         {
+            Instantiate(compraSFX);
             textMessage.text = "Compra realizada";
         }else{
             textMessage.text = "Carrito vacío";
@@ -158,7 +140,7 @@ public class Shop : MonoBehaviour
 
     public void PagarCredito()
     {
-        GameManager.instance.dineroCredito += (int)(countTotal * interes);
+        GameManager.instance.dineroCredito += (int)(countTotal * interes);        
         AgregarInventarioPlayer();
     }
 }
