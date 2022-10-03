@@ -38,9 +38,24 @@ public class Ganar : MonoBehaviour
 
     public void TomarAvion()
     {
-        if (PlayerStats.instance.tengoBoleto && GameManager.instance.dineroCredito <= 0)
+        if (PlayerStats.instance.tengoBoleto)
         {
-            canvasGanar.SetActive(true);
+            
+            if (GameManager.instance.dineroCredito <= 0)
+            {
+                canvasGanar.SetActive(true);
+            }
+            else
+            {
+                message2.text = "Tienes deudas pendientes";
+            }
+
         }
+        else
+        {
+            message2.text = "No tienes el boleto";
+        }
+        
     }
+
 }
