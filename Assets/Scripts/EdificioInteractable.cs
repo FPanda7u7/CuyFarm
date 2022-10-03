@@ -52,5 +52,10 @@ public class EdificioInteractable : Interactable
             shopCuy.textMessageVenta.text = "";
             shopCuy.textMessageCompra.text = "Bienvenido";
         }
+
+        Home home = GetComponent<Home>();
+        if (home != null){
+            home.message.text = "";
+        }
     }
 }

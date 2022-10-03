@@ -59,12 +59,22 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
         }
 
-        if(_hour > 23 && _hour < 7)
+        if(_hour >= 23)
         {
+            staticPlayer = true;
             Time.timeScale = 20;
-        }else{
+        }
+
+        if(_hour <= 7)
+        {
+            staticPlayer = true;
+            Time.timeScale = 20;
+        }
+
+        if(_hour > 7 && _hour < 23)
+        {
             
-            //Time.timeScale = 1;
+            Time.timeScale = 1;
         }
         
         if (staticPlayer)

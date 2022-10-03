@@ -35,6 +35,12 @@ public class PlayerStats : MonoBehaviour
     public Cuy cuy;
 
     public GameObject canvasPerder;
+    public GameObject Durmiendo;
+    
+    public TextMeshProUGUI days;
+    public TextMeshProUGUI hours;
+    public int horas;
+    public int dias;
 
     public static PlayerStats instance { get; private set; }
 
@@ -51,6 +57,8 @@ public class PlayerStats : MonoBehaviour
     private void Start()
     {
         hambreVal = hambreMax;
+        sueño = true;
+        hambre = true;
     }
 
     void Update()
@@ -70,6 +78,12 @@ public class PlayerStats : MonoBehaviour
             gameObject.transform.rotation = hospital.rotation;
             _hambre = false;
         }
+
+        horas = (int)GameManager.instance._hour;
+        dias = (int)GameManager.instance._day;
+
+        hours.text = string.Format("{0:00}:00", (horas % 24));
+        days.text = GameManager.instance.days[(dias % 7)];
 
         Dormir();
         Hambre();
@@ -128,12 +142,13 @@ public class PlayerStats : MonoBehaviour
     
     public void Dormir()
     {
-        if (GameManager.instance._hour >= 23 && !sueño)
+        if (GameManager.instance._hour >= 23 && sueño)
         {
             NotificacionManager.instance.CrearNotificacion("Procura dormir, se te cobro S/50");
-            GameManager.instance.timeElapsed += 150f;
             GameManager.instance.dineroCredito += 50;
+            Durmiendo.SetActive(true);
             _sueño = true;
+            sueño = false;
         }
     }
 
@@ -188,6 +203,15 @@ public class PlayerStats : MonoBehaviour
                 statsText[6].text = "No está embarazada";
             }       
         } 
+    }
+
+    public void VolverGameplay()
+    {
+        if (GameManager.instance._hour >= 7 && GameManager.instance._hour < 23)
+        {
+            Durmiendo.SetActive(false);
+            GameManager.instance.staticPlayer = false;
+        }
     }
 
     public void VolverMenu()
