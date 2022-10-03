@@ -156,7 +156,7 @@ public class PlayerStats : MonoBehaviour
 
     public void Perder()
     {
-        if (GameManager.instance._day == 15 || GameManager.instance._day == 28)
+        if (GameManager.instance._day == 7 || GameManager.instance._day == 14 || GameManager.instance._day == 21 || GameManager.instance._day == 28)
         {
             if (CuyesList.Count == 0 && GameManager.instance.dineroCredito > 0)
             {

@@ -38,6 +38,12 @@ public class EdificioInteractable : Interactable
         GameManager.instance.staticPlayer = false;
         isUsing = false;
 
+        Ganar ganar = GetComponent<Ganar>();
+        if (ganar != null){
+            ganar.message1.text = "";
+            ganar.message2.text = "";
+        }
+
         Shop shop = GetComponent<Shop>();
         if (shop != null){
             shop.countFoodCuy = 0;
@@ -56,11 +62,6 @@ public class EdificioInteractable : Interactable
         Home home = GetComponent<Home>();
         if (home != null){
             home.message.text = "";
-        }
-
-        Ganar ganar = GetComponent<Ganar>();
-        if (ganar != null){
-            ganar.message1.text = "";
-        }
+        }       
     }
 }

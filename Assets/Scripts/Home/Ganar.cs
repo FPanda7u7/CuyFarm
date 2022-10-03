@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Ganar : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class Ganar : MonoBehaviour
     private void Update()
     {
         dinero.text = GameManager.instance.dineroDebito.ToString();
-        _precioBoleto.text = precioBoleto.ToString();
+        _precioBoleto.text = "S/" + precioBoleto.ToString();
     }
 
     public void ComprarBoleto()
@@ -56,6 +57,11 @@ public class Ganar : MonoBehaviour
             message2.text = "No tienes el boleto";
         }
         
+    }
+
+    public void VolverMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
 }

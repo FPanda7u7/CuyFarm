@@ -323,11 +323,11 @@ MonoBehaviour:
   hambre: 0
   tiempoComer: 0
   embarazado: 0
-  tiempoEmbarazo: 1
+  tiempoEmbarazo: 3
   tmpEmbarazo: 0
   enCelo: 0
   tmpDay: -1
-  timepoEnCelo: 1
+  timepoEnCelo: 2
   tmpEnCelo: 0
   gameObjectCuy: {fileID: 4619099674532961253}
   cuyController: {fileID: 0}
