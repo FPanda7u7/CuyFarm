@@ -11,6 +11,8 @@ public class PlayerStats : MonoBehaviour
     
     public List<Cuy> CuyesList;
 
+    public bool tengoBoleto;
+
     public bool sueño;
     public bool hambre;
     public bool _sueño;

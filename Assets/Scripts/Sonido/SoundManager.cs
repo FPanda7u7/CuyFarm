@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-
     public GameObject despertarSFX;
 
     public int horas;
@@ -22,8 +21,10 @@ public class SoundManager : MonoBehaviour
 
         if (horas == 7 && sonando)
         {
-            sonando = false;
             Instantiate(despertarSFX);
+            sonando = false;
+            Debug.Log("Sonó Gallo");
+            
         }
         if (horas == 8)
         {

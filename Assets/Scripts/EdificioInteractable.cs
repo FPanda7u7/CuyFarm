@@ -57,5 +57,10 @@ public class EdificioInteractable : Interactable
         if (home != null){
             home.message.text = "";
         }
+
+        Ganar ganar = GetComponent<Ganar>();
+        if (ganar != null){
+            ganar.message1.text = "";
+        }
     }
 }
